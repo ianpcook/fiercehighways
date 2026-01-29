@@ -1,0 +1,38 @@
+---
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { href: 'https://linkedin.com/in/ianpcook', label: 'LinkedIn', icon: 'linkedin' },
+  { href: 'https://twitter.com/ianpcook', label: 'Twitter', icon: 'twitter' },
+  { href: 'https://github.com/ianpcook', label: 'GitHub', icon: 'github' },
+];
+---
+
+<footer class="border-t border-parchment bg-cream-dark">
+  <div class="container-wide py-12">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <p class="text-sm text-stone">
+          &copy; {currentYear} Ian Cook, PhD. All rights reserved.
+        </p>
+        <p class="text-xs text-stone mt-1">
+          Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-sienna">Astro</a>
+        </p>
+      </div>
+
+      <div class="flex gap-6">
+        {socialLinks.map(({ href, label }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-stone hover:text-sienna transition-colors no-underline"
+            aria-label={label}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

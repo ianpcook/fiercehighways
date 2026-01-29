@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const email = 'hello@fiercehighways.ai';
+const socialLinks = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ianpcook' },
+  { name: 'Twitter', url: 'https://twitter.com/ianpcook' },
+  { name: 'GitHub', url: 'https://github.com/ianpcook' },
+];
+---
+
+<BaseLayout
+  title="Contact | Ian Cook, PhD | Fierce Highways"
+  description="Get in touch about AI consulting, prototyping, and production implementation projects."
+>
+  <section class="section-spacing">
+    <div class="container-editorial">
+      <p class="label text-sienna mb-4">Contact</p>
+      <h1 class="text-3xl md:text-4xl font-display font-bold mb-8">
+        Let's Work Together
+      </h1>
+
+      <div class="prose max-w-none">
+        <p class="type-lead mb-8">
+          Have an AI project that needs experienced hands? Whether you're exploring a prototype or ready to scale to production, I'd love to hear about it.
+        </p>
+
+        <div class="bg-cream-dark p-8 mb-12">
+          <h2 class="text-xl font-display font-bold mb-4">Get in Touch</h2>
+          <p class="text-ink-light mb-6">
+            The best way to reach me is by email. I typically respond within 24-48 hours.
+          </p>
+          <a
+            href={`mailto:${email}`}
+            class="inline-block px-6 py-3 bg-sienna text-cream font-medium text-sm tracking-wide uppercase no-underline hover:bg-sienna-dark transition-colors"
+          >
+            Send Email
+          </a>
+        </div>
+
+        <h2 class="text-xl font-display font-bold mb-6">What I Can Help With</h2>
+        <ul class="space-y-3 mb-12 text-ink-light">
+          <li class="flex gap-3">
+            <span class="text-sienna">—</span>
+            <span>AI prototype development and proof-of-concept builds</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-sienna">—</span>
+            <span>Taking prototypes to production-ready systems</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-sienna">—</span>
+            <span>AI strategy consulting and technology assessment</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-sienna">—</span>
+            <span>Team mentorship and technical leadership</span>
+          </li>
+        </ul>
+
+        <h2 class="text-xl font-display font-bold mb-6">Connect</h2>
+        <div class="flex flex-wrap gap-4">
+          {socialLinks.map(({ name, url }) => (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 border border-parchment text-ink hover:border-sienna hover:text-sienna transition-colors no-underline text-sm"
+            >
+              {name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

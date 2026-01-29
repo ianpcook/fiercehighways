@@ -1,0 +1,180 @@
+:root {
+  /* Type Scale (1.333 perfect fourth ratio) */
+  --text-xs: 0.75rem;      /* 12px - captions, labels */
+  --text-sm: 0.875rem;     /* 14px - metadata, dates */
+  --text-base: 1.125rem;   /* 18px - body (larger for editorial) */
+  --text-lg: 1.5rem;       /* 24px - lead paragraphs */
+  --text-xl: 2rem;         /* 32px - section headers */
+  --text-2xl: 2.667rem;    /* ~43px - article titles */
+  --text-3xl: 3.556rem;    /* ~57px - hero headlines */
+  --text-4xl: 4.741rem;    /* ~76px - display/statement */
+
+  /* Line Heights */
+  --leading-tight: 1.1;    /* Headlines */
+  --leading-snug: 1.25;    /* Subheads */
+  --leading-normal: 1.6;   /* Body text */
+  --leading-relaxed: 1.75; /* Long-form reading */
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;  /* Large headlines */
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;    /* Small caps, labels */
+  --tracking-wider: 0.1em;    /* All-caps accent text */
+
+  /* Font Families */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+
+  /* Core Palette */
+  --color-cream: #FAF8F5;
+  --color-cream-dark: #F0EDE8;
+  --color-sienna: #8B4513;
+  --color-sienna-light: #A65D2E;
+  --color-sienna-dark: #6B350F;
+
+  /* Neutrals (warm-tinted) */
+  --color-ink: #2C2420;
+  --color-ink-light: #4A423D;
+  --color-stone: #8A817C;
+  --color-parchment: #E8E4DE;
+  --color-paper: #FFFFFF;
+
+  /* Semantic Tokens */
+  --color-text-primary: var(--color-ink);
+  --color-text-secondary: var(--color-ink-light);
+  --color-text-muted: var(--color-stone);
+  --color-text-accent: var(--color-sienna);
+
+  --color-bg-page: var(--color-cream);
+  --color-bg-elevated: var(--color-paper);
+  --color-bg-subtle: var(--color-cream-dark);
+
+  --color-border: var(--color-parchment);
+  --color-border-strong: var(--color-stone);
+
+  /* Interactive States */
+  --color-hover: var(--color-sienna-light);
+  --color-active: var(--color-sienna-dark);
+  --color-focus-ring: rgba(139, 69, 19, 0.3);
+}
+
+/* Base Styles */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
+
+/* Links */
+a {
+  color: var(--color-text-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Paragraphs */
+p {
+  max-width: 65ch;
+}
+
+/* Labels and metadata */
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Display text - for hero statements */
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Lead text - for introductions */
+.type-lead {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+/* Fraunces variable font features */
+.fraunces-display {
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 1;
+}
+
+.fraunces-text {
+  font-variation-settings: 'opsz' 9, 'SOFT' 50, 'WONK' 0;
+}
+
+/* View Transitions */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

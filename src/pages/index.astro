@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import { getCollection } from 'astro:content';
+
+const allWork = await getCollection('work');
+const featuredWork = allWork
+  .filter((w) => w.data.featured)
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+  .slice(0, 3);
+
+const allWriting = await getCollection('writing');
+const recentWriting = allWriting
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+  .slice(0, 3);
+
+const typeLabels: Record<string, string> = {
+  article: 'Article',
+  podcast: 'Podcast',
+  talk: 'Talk',
+};
+
+const formatDate = (date: Date): string =>
+  date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Ian Cook, PhD | AI Consulting | Fierce Highways"
+  description="I help teams build AI prototypes that prove ideas work, then get them into production. From concept to deployment, I bring the science back to data science."
+>
+  <Hero
+    tagline="AI Prototyping & Consulting"
+    title="Keeping the science in DS, the learning in ML, and the artificial in AI."
+    description="I help teams build AI prototypes that prove ideas work, then get them into production. Nine years of leading ML and data engineering teams across defense, healthcare, insurance, and consumer intelligence."
+  />
+
+  <Services />
+
+  <!-- Work Preview Section -->
+  <section class="section-spacing">
+    <div class="container-wide">
+      <p class="label text-sienna mb-4">Selected Work</p>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
+        Recent Projects
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        {featuredWork.map((project) => (
+          <a
+            href={`/work/${project.slug}`}
+            class="block border border-parchment p-6 no-underline hover:border-sienna transition-colors group"
+          >
+            <p class="label mb-2">{project.data.industry}</p>
+            <h3 class="text-xl font-display font-bold mb-3 group-hover:text-sienna transition-colors">
+              {project.data.title}
+            </h3>
+            <p class="text-ink-light text-sm mb-4">
+              {project.data.description}
+            </p>
+            <span class="text-sienna text-sm font-medium">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+
+      <a href="/work" class="text-sienna font-medium">View all work &rarr;</a>
+    </div>
+  </section>
+
+  <!-- About Preview Section -->
+  <section class="section-spacing bg-cream-dark">
+    <div class="container-editorial">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="label text-sienna mb-4">About</p>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">
+            Ian Cook, PhD
+          </h2>
+          <p class="text-ink-light leading-relaxed mb-4">
+            I'm the SVP of AI Technology at Qloo, where I lead cross-functional teams building cultural intelligence platforms. Before that, I was Head of AI at Sixfold, improving insurance underwriting with machine learning.
+          </p>
+          <p class="text-ink-light leading-relaxed mb-6">
+            My path to AI was unconventional: I started in public policy at the University of Chicago, worked at RAND on defense analysis, and taught myself Python while pursuing my PhD in Political Science at the University of Pittsburgh.
+          </p>
+          <a href="/about" class="text-sienna font-medium">More about me &rarr;</a>
+        </div>
+
+        <div class="bg-parchment aspect-square flex items-center justify-center">
+          <span class="text-stone text-sm">Photo placeholder</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Writing Section -->
+  <section class="section-spacing">
+    <div class="container-wide">
+      <p class="label text-sienna mb-4">Writing & Podcasts</p>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
+        Recent Thoughts
+      </h2>
+
+      <div class="space-y-6 mb-8">
+        {recentWriting.map((piece) => (
+          <article class="flex gap-6 items-start pb-6 border-b border-parchment last:border-0">
+            <div class="flex-1">
+              <p class="label mb-2">{typeLabels[piece.data.type]}</p>
+              <h3 class="text-xl font-display font-bold mb-2">
+                {piece.data.externalUrl ? (
+                  <a
+                    href={piece.data.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="no-underline hover:text-sienna"
+                  >
+                    {piece.data.title}
+                  </a>
+                ) : (
+                  <a href="/writing" class="no-underline hover:text-sienna">
+                    {piece.data.title}
+                  </a>
+                )}
+              </h3>
+              <p class="text-ink-light text-sm">
+                {piece.data.venue ? `${piece.data.venue} · ` : ''}{formatDate(piece.data.publishedDate)}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <a href="/writing" class="text-sienna font-medium">View all writing &rarr;</a>
+    </div>
+  </section>
+</BaseLayout>

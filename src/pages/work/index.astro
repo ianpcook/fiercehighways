@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allWork = await getCollection('work');
+const sortedWork = allWork.sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Work | Ian Cook, PhD | Fierce Highways"
+  description="Selected projects in AI prototyping, ML infrastructure, and production systems."
+>
+  <section class="section-spacing">
+    <div class="container-wide">
+      <p class="label text-sienna mb-4">Work</p>
+      <h1 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        Selected Projects
+      </h1>
+      <p class="type-lead max-w-2xl mb-12">
+        A selection of AI and data science projects across consumer intelligence, insurance, healthcare, and defense.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {sortedWork.map((project) => (
+          <a
+            href={`/work/${project.slug}`}
+            class="block border border-parchment p-8 no-underline hover:border-sienna transition-colors group"
+          >
+            <p class="label text-stone mb-2">{project.data.industry}</p>
+            <h2 class="text-xl font-display font-bold mb-3 group-hover:text-sienna transition-colors">
+              {project.data.title}
+            </h2>
+            <p class="text-ink-light text-sm mb-4">
+              {project.data.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.data.services.map((service) => (
+                <span class="text-xs px-2 py-1 bg-cream-dark text-stone">
+                  {service}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-cream-dark">
+    <div class="container-editorial text-center">
+      <h2 class="text-2xl font-display font-bold mb-4">Have a Project in Mind?</h2>
+      <p class="type-lead mx-auto mb-8">
+        Let's discuss how I can help bring your AI ideas to life.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-6 py-3 bg-sienna text-cream font-medium text-sm tracking-wide uppercase no-underline hover:bg-sienna-dark transition-colors"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>

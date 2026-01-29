@@ -1,0 +1,56 @@
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { href: '/work', label: 'Work' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const isActive = (href: string): boolean =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<header class="border-b border-parchment">
+  <nav class="container-wide flex items-center justify-between py-6">
+    <a
+      href="/"
+      class="font-display text-xl font-bold text-ink no-underline hover:text-sienna transition-colors"
+    >
+      Fierce Highways
+    </a>
+
+    <ul class="flex gap-8">
+      {navItems.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class:list={[
+              'text-sm font-medium tracking-wide uppercase no-underline transition-colors',
+              isActive(href)
+                ? 'text-sienna'
+                : 'text-ink-light hover:text-sienna',
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: var(--color-bg-page);
+  }
+
+  nav a {
+    font-family: var(--font-body);
+  }
+
+  nav a:first-child {
+    font-family: var(--font-display);
+  }
+</style>

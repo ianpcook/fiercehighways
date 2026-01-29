@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const careerHistory = [
+  {
+    company: 'Qloo',
+    role: 'SVP AI Technology',
+    period: 'Current',
+    description: 'Leading cross-functional teams building cultural intelligence platforms that decode and predict consumer preferences across 3.7B+ lifestyle entities.',
+  },
+  {
+    company: 'Sixfold',
+    role: 'Head of AI/ML',
+    period: '2022-2024',
+    description: 'Built and scaled ML infrastructure for insurance underwriting, achieving 40% improvement in document extraction accuracy.',
+  },
+  {
+    company: 'SEEK',
+    role: 'Data Science Lead',
+    period: '2020-2022',
+    description: 'Led data science initiatives for enterprise search and discovery platforms.',
+  },
+  {
+    company: 'Govini',
+    role: 'Senior Data Scientist',
+    period: '2018-2020',
+    description: 'Developed analytics solutions for government and defense clients.',
+  },
+  {
+    company: 'Highmark Health',
+    role: 'Data Scientist',
+    period: '2016-2018',
+    description: 'Applied machine learning to healthcare analytics and outcomes prediction.',
+  },
+  {
+    company: 'RAND Corporation',
+    role: 'Policy Analyst',
+    period: '2012-2016',
+    description: 'Quantitative policy analysis for major defense agencies and federal organizations.',
+  },
+];
+
+const publications = [
+  {
+    title: 'Unexpected Philosophers: Coders of Tomorrow Need Plato As Much As Python',
+    venue: 'LinkedIn',
+    date: 'September 2024',
+  },
+  {
+    title: 'How to Choose an AI Vendor (Who Can Actually Deliver)',
+    venue: 'LinkedIn',
+    date: 'September 2024',
+  },
+];
+---
+
+<BaseLayout
+  title="About | Ian Cook, PhD | Fierce Highways"
+  description="SVP AI Technology at Qloo. 9+ years leading ML, data engineering, and analytics teams. PhD in Political Science, MPP from University of Chicago."
+>
+  <section class="section-spacing">
+    <div class="container-editorial">
+      <p class="label text-sienna mb-4">About</p>
+      <h1 class="text-3xl md:text-4xl font-display font-bold mb-8">
+        Ian Cook, PhD
+      </h1>
+
+      <div class="prose max-w-none">
+        <p class="type-lead mb-8">
+          I'm an AI leader who believes that data science should have more science in it, machine learning should involve more learning, and artificial intelligence should acknowledge its artificiality.
+        </p>
+
+        <p class="mb-6">
+          Currently, I serve as SVP of AI Technology at Qloo, where I lead teams building cultural intelligence platforms. Our AI maps connections across 3.7 billion lifestyle entities—from music and food to fashion and travel—helping brands understand and predict consumer taste without compromising privacy.
+        </p>
+
+        <p class="mb-6">
+          My path to AI leadership was unconventional. I started in public policy at the University of Chicago, studying how people make decisions. That led me to RAND Corporation, where I did quantitative policy analysis for defense agencies. While pursuing my PhD in Political Science at the University of Pittsburgh, I taught myself Python and discovered that econometrics translated surprisingly well to the then-exploding field of data science.
+        </p>
+
+        <p class="mb-6">
+          Since then, I've led ML and data engineering teams across defense, healthcare, insurance, and consumer intelligence. At Sixfold, I improved document extraction accuracy by 40%. At SEEK and Govini, I built analytics platforms that turned messy enterprise data into actionable insights.
+        </p>
+
+        <p class="mb-8">
+          I'm also the self-appointed Curmudgeon in Residence at the Auditory Perception and Cognition Lab, reflecting a curiosity that spans AI, data, and how humans actually think.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Timeline -->
+  <section class="section-spacing bg-cream-dark">
+    <div class="container-editorial">
+      <h2 class="text-2xl font-display font-bold mb-8">Career</h2>
+
+      <div class="space-y-8">
+        {careerHistory.map(({ company, role, period, description }) => (
+          <div class="flex gap-6 pb-8 border-b border-parchment last:border-0">
+            <div class="w-24 flex-shrink-0">
+              <p class="text-sm text-stone">{period}</p>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg">{role}</h3>
+              <p class="text-sienna text-sm mb-2">{company}</p>
+              <p class="text-ink-light text-sm">{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section-spacing">
+    <div class="container-editorial">
+      <h2 class="text-2xl font-display font-bold mb-8">Education</h2>
+
+      <div class="space-y-6">
+        <div class="flex gap-6">
+          <div class="w-24 flex-shrink-0">
+            <p class="text-sm text-stone">2008-2015</p>
+          </div>
+          <div>
+            <h3 class="font-display font-bold">PhD, Political Science</h3>
+            <p class="text-sienna text-sm">University of Pittsburgh</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6">
+          <div class="w-24 flex-shrink-0">
+            <p class="text-sm text-stone">2002-2004</p>
+          </div>
+          <div>
+            <h3 class="font-display font-bold">MPP, Public Policy</h3>
+            <p class="text-sienna text-sm">University of Chicago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="section-spacing bg-cream-dark">
+    <div class="container-editorial">
+      <h2 class="text-2xl font-display font-bold mb-8">Selected Publications</h2>
+
+      <div class="space-y-6">
+        {publications.map(({ title, venue, date }) => (
+          <div class="pb-6 border-b border-parchment last:border-0">
+            <h3 class="font-display font-bold mb-1">{title}</h3>
+            <p class="text-sm text-stone">{venue} &middot; {date}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section-spacing">
+    <div class="container-editorial text-center">
+      <h2 class="text-2xl font-display font-bold mb-4">Let's Work Together</h2>
+      <p class="type-lead mx-auto mb-8">
+        Have an AI project that needs experienced hands? Let's talk.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-6 py-3 bg-sienna text-cream font-medium text-sm tracking-wide uppercase no-underline hover:bg-sienna-dark transition-colors"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>
