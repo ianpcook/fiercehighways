@@ -28,6 +28,7 @@ const writingCollection = defineCollection({
       url: z.string().url(),
     })).optional(),
     venue: z.string().optional(),
+    thumbnail: z.string().optional(),
     featured: z.boolean().default(false),
   }),
 });

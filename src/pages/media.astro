@@ -32,77 +32,97 @@ const formatDate = (date: Date): string =>
         Podcast appearances, hosted shows, and articles on AI, machine learning, and building things that work.
       </p>
 
-      <div class="space-y-8">
+      <div class="space-y-10">
         {sortedMedia.map((piece) => (
-          <article class="pb-8 border-b border-parchment last:border-0">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="label">{typeLabels[piece.data.type]}</span>
-              {piece.data.venue && (
-                <>
-                  <span class="text-stone text-sm">&middot;</span>
-                  <span class="text-stone text-sm">{piece.data.venue}</span>
-                </>
-              )}
-            </div>
-
-            <h2 class="text-xl font-display font-bold mb-2">
-              {piece.data.externalUrl ? (
+          <article class="pb-10 border-b border-parchment last:border-0">
+            <div class="flex gap-6">
+              {piece.data.thumbnail && (
                 <a
-                  href={piece.data.externalUrl}
+                  href={piece.data.links?.[0]?.url || piece.data.externalUrl || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="no-underline hover:text-sienna transition-colors"
+                  class="flex-shrink-0 block w-48 aspect-video overflow-hidden bg-parchment"
                 >
-                  {piece.data.title}
+                  <img
+                    src={piece.data.thumbnail}
+                    alt={piece.data.title}
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
                 </a>
-              ) : piece.data.links && piece.data.links.length > 0 ? (
-                <a
-                  href={piece.data.links[0].url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="no-underline hover:text-sienna transition-colors"
-                >
-                  {piece.data.title}
-                </a>
-              ) : (
-                piece.data.title
               )}
-            </h2>
 
-            <p class="text-ink-light text-sm mb-3">
-              {piece.data.description}
-            </p>
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="label">{typeLabels[piece.data.type]}</span>
+                  {piece.data.venue && (
+                    <>
+                      <span class="text-stone text-sm">&middot;</span>
+                      <span class="text-stone text-sm">{piece.data.venue}</span>
+                    </>
+                  )}
+                </div>
 
-            <div class="flex items-center gap-4">
-              <span class="text-stone text-sm">
-                {formatDate(piece.data.publishedDate)}
-              </span>
-
-              {piece.data.links && piece.data.links.length > 0 && (
-                <div class="flex gap-3">
-                  {piece.data.links.map((link) => (
+                <h2 class="text-xl font-display font-bold mb-2">
+                  {piece.data.externalUrl ? (
                     <a
-                      href={link.url}
+                      href={piece.data.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="no-underline hover:text-sienna transition-colors"
+                    >
+                      {piece.data.title}
+                    </a>
+                  ) : piece.data.links && piece.data.links.length > 0 ? (
+                    <a
+                      href={piece.data.links[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="no-underline hover:text-sienna transition-colors"
+                    >
+                      {piece.data.title}
+                    </a>
+                  ) : (
+                    piece.data.title
+                  )}
+                </h2>
+
+                <p class="text-ink-light text-sm mb-3">
+                  {piece.data.description}
+                </p>
+
+                <div class="flex items-center gap-4">
+                  <span class="text-stone text-sm">
+                    {formatDate(piece.data.publishedDate)}
+                  </span>
+
+                  {piece.data.links && piece.data.links.length > 0 && (
+                    <div class="flex gap-3">
+                      {piece.data.links.map((link) => (
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-sienna text-sm font-medium no-underline hover:underline"
+                        >
+                          {link.platform}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+
+                  {!piece.data.links && piece.data.externalUrl && (
+                    <a
+                      href={piece.data.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       class="text-sienna text-sm font-medium no-underline hover:underline"
                     >
-                      {link.platform}
+                      {piece.data.type === 'podcast' || piece.data.type === 'hosted' ? 'Listen' : 'Read'} &rarr;
                     </a>
-                  ))}
+                  )}
                 </div>
-              )}
-
-              {!piece.data.links && piece.data.externalUrl && (
-                <a
-                  href={piece.data.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-sienna text-sm font-medium no-underline hover:underline"
-                >
-                  {piece.data.type === 'podcast' || piece.data.type === 'hosted' ? 'Listen' : 'Read'} &rarr;
-                </a>
-              )}
+              </div>
             </div>
           </article>
         ))}
