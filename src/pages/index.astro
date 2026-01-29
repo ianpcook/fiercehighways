@@ -86,8 +86,17 @@ const services = [
   </section>
 
   <!-- Services -->
-  <section class="section-spacing bg-ink">
-    <div class="container-wide">
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1520095972714-909e91b038e5?w=1920&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-ink/85"></div>
+    </div>
+    <div class="relative container-wide">
       <p class="label text-sienna mb-4">What We Do</p>
       <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-12 max-w-2xl">
         Build it. Prove it. Ship it.
@@ -95,7 +104,7 @@ const services = [
 
       <div class="grid md:grid-cols-3 gap-8">
         {services.map(({ title, description }) => (
-          <div class="border border-cream/20 p-8 hover:border-sienna transition-colors">
+          <div class="border border-cream/20 p-8 hover:border-sienna transition-colors bg-ink/40 backdrop-blur-sm">
             <h3 class="text-xl font-display font-bold text-cream mb-4">{title}</h3>
             <p class="text-cream/70 leading-relaxed">{description}</p>
           </div>
@@ -107,8 +116,8 @@ const services = [
   <!-- Highway Image Break -->
   <section class="relative h-80 overflow-hidden">
     <img
-      src="https://images.unsplash.com/photo-1515865644829-7bd6c4b0b93b?w=1920&q=80"
-      alt="Long straight highway"
+      src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1920&q=80"
+      alt="Winding mountain road"
       class="w-full h-full object-cover"
       loading="lazy"
     />
