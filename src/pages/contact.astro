@@ -10,54 +10,72 @@ const socialLinks = [
 ---
 
 <BaseLayout
-  title="Contact | Ian Cook, PhD | Fierce Highways"
+  title="Contact | Fierce Highways"
   description="Get in touch about AI consulting, prototyping, and production implementation projects."
 >
+  <!-- Hero with Highway Image -->
+  <section class="relative min-h-[40vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1462556791646-c201b8241a94?w=1920&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-ink/70"></div>
+    </div>
+
+    <div class="relative container-editorial py-16">
+      <p class="label text-sienna mb-4">Contact</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-cream mb-4">
+        Start a conversation.
+      </h1>
+      <p class="text-lg text-cream/80 max-w-xl">
+        Have an AI project that needs to move? Let's talk about what you're building.
+      </p>
+    </div>
+  </section>
+
   <section class="section-spacing">
     <div class="container-editorial">
-      <p class="label text-sienna mb-4">Contact</p>
-      <h1 class="text-3xl md:text-4xl font-display font-bold mb-8">
-        Let's Work Together
-      </h1>
-
-      <div class="prose max-w-none">
-        <p class="type-lead mb-8">
-          Have an AI project that needs experienced hands? Whether you're exploring a prototype or ready to scale to production, I'd love to hear about it.
-        </p>
-
-        <div class="bg-cream-dark p-8 mb-12">
-          <h2 class="text-xl font-display font-bold mb-4">Get in Touch</h2>
-          <p class="text-ink-light mb-6">
-            The best way to reach me is by email. I typically respond within 24-48 hours.
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-display font-bold mb-6">Get in Touch</h2>
+          <p class="text-ink-light mb-8 leading-relaxed">
+            Email is the fastest way to reach us. We typically respond within 24-48 hours.
           </p>
           <a
             href={`mailto:${email}`}
-            class="inline-block px-6 py-3 bg-sienna text-cream font-medium text-sm tracking-wide uppercase no-underline hover:bg-sienna-dark transition-colors"
+            class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-dark transition-colors"
           >
-            Send Email
+            {email}
           </a>
         </div>
 
-        <h2 class="text-xl font-display font-bold mb-6">What I Can Help With</h2>
-        <ul class="space-y-3 mb-12 text-ink-light">
-          <li class="flex gap-3">
-            <span class="text-sienna">—</span>
-            <span>AI prototype development and proof-of-concept builds</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-sienna">—</span>
-            <span>Taking prototypes to production-ready systems</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-sienna">—</span>
-            <span>AI strategy consulting and technology assessment</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-sienna">—</span>
-            <span>Team mentorship and technical leadership</span>
-          </li>
-        </ul>
+        <div>
+          <h2 class="text-2xl font-display font-bold mb-6">What We Do</h2>
+          <ul class="space-y-4 text-ink-light">
+            <li class="flex gap-3">
+              <span class="text-sienna font-bold">01</span>
+              <span>AI prototype development and proof-of-concept builds</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-sienna font-bold">02</span>
+              <span>Taking prototypes to production-ready systems</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-sienna font-bold">03</span>
+              <span>AI strategy consulting and technology assessment</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-sienna font-bold">04</span>
+              <span>Team mentorship and technical leadership</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="mt-16 pt-12 border-t border-parchment">
         <h2 class="text-xl font-display font-bold mb-6">Connect</h2>
         <div class="flex flex-wrap gap-4">
           {socialLinks.map(({ name, url }) => (
@@ -65,7 +83,7 @@ const socialLinks = [
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              class="px-4 py-2 border border-parchment text-ink hover:border-sienna hover:text-sienna transition-colors no-underline text-sm"
+              class="px-5 py-3 border border-parchment text-ink hover:border-sienna hover:text-sienna transition-colors no-underline text-sm font-medium"
             >
               {name}
             </a>

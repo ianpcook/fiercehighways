@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
 import { getCollection } from 'astro:content';
 
 const allWork = await getCollection('work');
@@ -23,26 +21,106 @@ const typeLabels: Record<string, string> = {
 
 const formatDate = (date: Date): string =>
   date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+const services = [
+  {
+    title: 'Prototype Development',
+    description: 'Transform ideas into working AI prototypes. Validate assumptions before committing to full builds.',
+  },
+  {
+    title: 'Production Implementation',
+    description: 'Take proven prototypes to scalable, maintainable production systems.',
+  },
+  {
+    title: 'AI Strategy',
+    description: 'Navigate the AI landscape. Know when to build, when to buy, and when to wait.',
+  },
+];
 ---
 
 <BaseLayout
-  title="Ian Cook, PhD | AI Consulting | Fierce Highways"
-  description="I help teams build AI prototypes that prove ideas work, then get them into production. From concept to deployment, I bring the science back to data science."
+  title="Fierce Highways | AI Prototyping & Consulting"
+  description="AI consulting that moves fast and ships. From prototype to production, we help teams build AI that actually works."
 >
-  <Hero
-    tagline="AI Prototyping & Consulting"
-    title="Keeping the science in DS, the learning in ML, and the artificial in AI."
-    description="I help teams build AI prototypes that prove ideas work, then get them into production. Nine years of leading ML and data engineering teams across defense, healthcare, insurance, and consumer intelligence."
-  />
+  <!-- Hero with Highway Imagery -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"></div>
+    </div>
 
-  <Services />
+    <!-- Content -->
+    <div class="relative container-wide py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-7xl font-display font-bold text-cream mb-6 leading-tight">
+          Fierce<br />Highways
+        </h1>
+        <p class="text-xl md:text-2xl text-cream/90 mb-4 font-display">
+          AI Prototyping & Consulting
+        </p>
+        <p class="text-lg text-cream/70 max-w-xl mb-10 leading-relaxed">
+          The shortest distance between your AI idea and production isn't a straight line. It's knowing which turns to take and which to skip entirely.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contact"
+            class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-light transition-colors"
+          >
+            Start a Project
+          </a>
+          <a
+            href="/work"
+            class="inline-block px-8 py-4 border-2 border-cream/40 text-cream font-medium tracking-wide uppercase no-underline hover:border-cream hover:bg-cream/10 transition-colors"
+          >
+            See the Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section-spacing bg-ink">
+    <div class="container-wide">
+      <p class="label text-sienna mb-4">What We Do</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-12 max-w-2xl">
+        From idea to production, without the detours.
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.map(({ title, description }) => (
+          <div class="border border-cream/20 p-8 hover:border-sienna transition-colors">
+            <h3 class="text-xl font-display font-bold text-cream mb-4">{title}</h3>
+            <p class="text-cream/70 leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Highway Image Break -->
+  <section class="relative h-80 overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+      alt=""
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-ink/30"></div>
+  </section>
 
   <!-- Work Preview Section -->
   <section class="section-spacing">
     <div class="container-wide">
       <p class="label text-sienna mb-4">Selected Work</p>
       <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
-        Recent Projects
+        Projects that shipped.
       </h2>
 
       <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -67,27 +145,33 @@ const formatDate = (date: Date): string =>
     </div>
   </section>
 
-  <!-- About Preview Section -->
+  <!-- Philosophy Section -->
   <section class="section-spacing bg-cream-dark">
     <div class="container-editorial">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <p class="label text-sienna mb-4">Philosophy</p>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
+        Keeping the science in data science, the learning in machine learning, and the artificial in AI.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <p class="label text-sienna mb-4">About</p>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">
-            Ian Cook, PhD
-          </h2>
           <p class="text-ink-light leading-relaxed mb-4">
-            I'm the SVP of AI Technology at Qloo, where I lead cross-functional teams building cultural intelligence platforms. Before that, I was Head of AI at Sixfold, improving insurance underwriting with machine learning.
+            Most AI projects fail not because the technology doesn't work, but because teams skip the fundamentals. They reach for transformers when regression would do. They train models before understanding their data. They deploy to production before proving the concept.
           </p>
-          <p class="text-ink-light leading-relaxed mb-6">
-            My path to AI was unconventional: I started in public policy at the University of Chicago, worked at RAND on defense analysis, and taught myself Python while pursuing my PhD in Political Science at the University of Pittsburgh.
+          <p class="text-ink-light leading-relaxed">
+            Fierce Highways exists to fix that. We prototype fast, validate honestly, and only build what's proven to work.
           </p>
-          <a href="/about" class="text-sienna font-medium">More about me &rarr;</a>
         </div>
-
-        <div class="bg-parchment aspect-square flex items-center justify-center">
-          <span class="text-stone text-sm">Photo placeholder</span>
+        <div>
+          <p class="text-ink-light leading-relaxed mb-4">
+            The name comes from Wallace Stevens: <em>"It was everything being more real, / himself at the center of reality, / seeing it. It was everything bulging and blazing and big in itself, / the blue of the rug, the portrait of Vidal, / Qui fait fi des jolisses banales."</em>
+          </p>
+          <p class="text-ink-light leading-relaxed">
+            That poem ends with a man on a fierce highway—alone, seeing clearly, moving fast. That's how good AI work gets done.
+          </p>
         </div>
+      </div>
+      <div class="mt-10">
+        <a href="/about" class="text-sienna font-medium">Meet the principal &rarr;</a>
       </div>
     </div>
   </section>
@@ -95,9 +179,9 @@ const formatDate = (date: Date): string =>
   <!-- Recent Writing Section -->
   <section class="section-spacing">
     <div class="container-wide">
-      <p class="label text-sienna mb-4">Writing & Podcasts</p>
+      <p class="label text-sienna mb-4">Thinking</p>
       <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
-        Recent Thoughts
+        Writing & Podcasts
       </h2>
 
       <div class="space-y-6 mb-8">
@@ -130,6 +214,34 @@ const formatDate = (date: Date): string =>
       </div>
 
       <a href="/writing" class="text-sienna font-medium">View all writing &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Final CTA with Highway Image -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=1920&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-ink/80"></div>
+    </div>
+
+    <div class="relative container-editorial text-center py-20">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-6">
+        Ready to move?
+      </h2>
+      <p class="text-lg text-cream/80 max-w-xl mx-auto mb-10">
+        Whether you're exploring a prototype or ready to scale to production, let's talk about what you're building.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-light transition-colors"
+      >
+        Start a Conversation
+      </a>
     </div>
   </section>
 </BaseLayout>
