@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
 import { getCollection } from 'astro:content';
 
 const allWork = await getCollection('work');
@@ -23,26 +21,115 @@ const typeLabels: Record<string, string> = {
 
 const formatDate = (date: Date): string =>
   date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+const services = [
+  {
+    title: 'Prototype Development',
+    description: 'Working code in days, not decks in weeks. Prove the concept before you commit the budget.',
+  },
+  {
+    title: 'Production Implementation',
+    description: 'Ship what works. Take validated prototypes to production systems that scale.',
+  },
+  {
+    title: 'Tactical AI',
+    description: 'Solve the problem in front of you. No roadmaps to nowhere—just the next right move.',
+  },
+];
 ---
 
 <BaseLayout
-  title="Ian Cook, PhD | AI Consulting | Fierce Highways"
-  description="I help teams build AI prototypes that prove ideas work, then get them into production. From concept to deployment, I bring the science back to data science."
+  title="Fierce Highways | AI Prototyping & Tactical Consulting"
+  description="Working AI in days, not decks in weeks. We build, prove, and ship—no roadmaps to nowhere."
 >
-  <Hero
-    tagline="AI Prototyping & Consulting"
-    title="Keeping the science in DS, the learning in ML, and the artificial in AI."
-    description="I help teams build AI prototypes that prove ideas work, then get them into production. Nine years of leading ML and data engineering teams across defense, healthcare, insurance, and consumer intelligence."
-  />
+  <!-- Hero with Highway Imagery -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80"
+        alt="Highway stretching into the distance"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"></div>
+    </div>
 
-  <Services />
+    <!-- Content -->
+    <div class="relative container-wide py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-7xl font-display font-bold text-cream mb-6 leading-tight">
+          Fierce<br />Highways
+        </h1>
+        <p class="text-xl md:text-2xl text-cream/90 mb-4 font-display">
+          AI Prototyping & Tactical Consulting
+        </p>
+        <p class="text-lg text-cream/70 max-w-xl mb-10 leading-relaxed">
+          You don't need a roadmap. You need to ship. We build working AI fast, prove what works, and get it into production.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contact"
+            class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-light transition-colors"
+          >
+            Start a Project
+          </a>
+          <a
+            href="/work"
+            class="inline-block px-8 py-4 border-2 border-cream/40 text-cream font-medium tracking-wide uppercase no-underline hover:border-cream hover:bg-cream/10 transition-colors"
+          >
+            See the Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="relative section-spacing overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/backgrounds/mountain-road.jpg"
+        alt="Mountain road at dusk"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-ink/85"></div>
+    </div>
+    <div class="relative container-wide">
+      <p class="label text-sienna mb-4">What We Do</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-12 max-w-2xl">
+        Build it. Prove it. Ship it.
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.map(({ title, description }) => (
+          <div class="border border-cream/20 p-8 hover:border-sienna transition-colors bg-ink/40 backdrop-blur-sm">
+            <h3 class="text-xl font-display font-bold text-cream mb-4">{title}</h3>
+            <p class="text-cream/70 leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Highway Image Break -->
+  <section class="relative h-80 overflow-hidden">
+    <img
+      src="/images/backgrounds/winding-road.jpg"
+      alt="Winding mountain road"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-ink/30"></div>
+  </section>
 
   <!-- Work Preview Section -->
   <section class="section-spacing">
     <div class="container-wide">
       <p class="label text-sienna mb-4">Selected Work</p>
       <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
-        Recent Projects
+        Projects that shipped.
       </h2>
 
       <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -67,27 +154,23 @@ const formatDate = (date: Date): string =>
     </div>
   </section>
 
-  <!-- About Preview Section -->
+  <!-- Philosophy Section -->
   <section class="section-spacing bg-cream-dark">
     <div class="container-editorial">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="label text-sienna mb-4">About</p>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">
-            Ian Cook, PhD
-          </h2>
-          <p class="text-ink-light leading-relaxed mb-4">
-            I'm the SVP of AI Technology at Qloo, where I lead cross-functional teams building cultural intelligence platforms. Before that, I was Head of AI at Sixfold, improving insurance underwriting with machine learning.
-          </p>
-          <p class="text-ink-light leading-relaxed mb-6">
-            My path to AI was unconventional: I started in public policy at the University of Chicago, worked at RAND on defense analysis, and taught myself Python while pursuing my PhD in Political Science at the University of Pittsburgh.
-          </p>
-          <a href="/about" class="text-sienna font-medium">More about me &rarr;</a>
-        </div>
-
-        <div class="bg-parchment aspect-square flex items-center justify-center">
-          <span class="text-stone text-sm">Photo placeholder</span>
-        </div>
+      <p class="label text-sienna mb-4">Philosophy</p>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
+        Tactics, not strategy. Code, not decks.
+      </h2>
+      <div class="prose max-w-none">
+        <p class="text-ink-light leading-relaxed mb-4">
+          Most AI consultants deliver PowerPoints. We deliver working software. You have an immediate problem—not a five-year roadmap problem. You need something that works now, that you can touch and test and ship.
+        </p>
+        <p class="text-ink-light leading-relaxed">
+          That's what we do. We build fast, we prove fast, we fail fast when we need to. No elaborate discovery phases. No "alignment workshops." Just the next right move, executed.
+        </p>
+      </div>
+      <div class="mt-10">
+        <a href="/about" class="text-sienna font-medium">Meet the principal &rarr;</a>
       </div>
     </div>
   </section>
@@ -95,9 +178,9 @@ const formatDate = (date: Date): string =>
   <!-- Recent Writing Section -->
   <section class="section-spacing">
     <div class="container-wide">
-      <p class="label text-sienna mb-4">Writing & Podcasts</p>
+      <p class="label text-sienna mb-4">Media</p>
       <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
-        Recent Thoughts
+        Podcasts & Writing
       </h2>
 
       <div class="space-y-6 mb-8">
@@ -116,7 +199,7 @@ const formatDate = (date: Date): string =>
                     {piece.data.title}
                   </a>
                 ) : (
-                  <a href="/writing" class="no-underline hover:text-sienna">
+                  <a href="/media" class="no-underline hover:text-sienna">
                     {piece.data.title}
                   </a>
                 )}
@@ -129,7 +212,35 @@ const formatDate = (date: Date): string =>
         ))}
       </div>
 
-      <a href="/writing" class="text-sienna font-medium">View all writing &rarr;</a>
+      <a href="/media" class="text-sienna font-medium">View all media &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Final CTA with Highway Image -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1504204267155-aabd8eab58c3?w=1920&q=80"
+        alt="Highway at dusk"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-ink/80"></div>
+    </div>
+
+    <div class="relative container-editorial text-center py-20">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-6">
+        Got a problem? Let's solve it.
+      </h2>
+      <p class="text-lg text-cream/80 max-w-xl mx-auto mb-10">
+        Tell me what's stuck. We'll figure out the fastest path to unstuck.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-light transition-colors"
+      >
+        Start a Conversation
+      </a>
     </div>
   </section>
 </BaseLayout>

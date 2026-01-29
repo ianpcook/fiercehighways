@@ -20,10 +20,15 @@ const writingCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    type: z.enum(['article', 'podcast', 'talk']),
+    type: z.enum(['article', 'podcast', 'talk', 'hosted']),
     publishedDate: z.coerce.date(),
     externalUrl: z.string().url().optional(),
+    links: z.array(z.object({
+      platform: z.string(),
+      url: z.string().url(),
+    })).optional(),
     venue: z.string().optional(),
+    thumbnail: z.string().optional(),
     featured: z.boolean().default(false),
   }),
 });

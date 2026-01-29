@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allMedia = await getCollection('writing');
+const sortedMedia = allMedia.sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
+);
+
+const typeLabels: Record<string, string> = {
+  article: 'Article',
+  podcast: 'Podcast',
+  talk: 'Talk',
+  hosted: 'Hosted',
+};
+
+const formatDate = (date: Date): string =>
+  date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Media | Fierce Highways"
+  description="Podcasts, articles, and talks on AI, machine learning, and data science."
+>
+  <section class="section-spacing">
+    <div class="container-wide">
+      <p class="label text-sienna mb-4">Media</p>
+      <h1 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        Podcasts & Writing
+      </h1>
+      <p class="type-lead max-w-2xl mb-12">
+        Podcast appearances, hosted shows, and articles on AI, machine learning, and building things that work.
+      </p>
+
+      <div class="space-y-10">
+        {sortedMedia.map((piece) => (
+          <article class="pb-10 border-b border-parchment last:border-0">
+            <div class="flex gap-6">
+              {piece.data.thumbnail && (
+                <a
+                  href={piece.data.links?.[0]?.url || piece.data.externalUrl || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-shrink-0 block w-48 aspect-video overflow-hidden bg-parchment"
+                >
+                  <img
+                    src={piece.data.thumbnail}
+                    alt={piece.data.title}
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </a>
+              )}
+
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="label">{typeLabels[piece.data.type]}</span>
+                  {piece.data.venue && (
+                    <>
+                      <span class="text-stone text-sm">&middot;</span>
+                      <span class="text-stone text-sm">{piece.data.venue}</span>
+                    </>
+                  )}
+                </div>
+
+                <h2 class="text-xl font-display font-bold mb-2">
+                  {piece.data.externalUrl ? (
+                    <a
+                      href={piece.data.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="no-underline hover:text-sienna transition-colors"
+                    >
+                      {piece.data.title}
+                    </a>
+                  ) : piece.data.links && piece.data.links.length > 0 ? (
+                    <a
+                      href={piece.data.links[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="no-underline hover:text-sienna transition-colors"
+                    >
+                      {piece.data.title}
+                    </a>
+                  ) : (
+                    piece.data.title
+                  )}
+                </h2>
+
+                <p class="text-ink-light text-sm mb-3">
+                  {piece.data.description}
+                </p>
+
+                <div class="flex items-center gap-4">
+                  <span class="text-stone text-sm">
+                    {formatDate(piece.data.publishedDate)}
+                  </span>
+
+                  {piece.data.links && piece.data.links.length > 0 && (
+                    <div class="flex gap-3">
+                      {piece.data.links.map((link) => (
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-sienna text-sm font-medium no-underline hover:underline"
+                        >
+                          {link.platform}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+
+                  {!piece.data.links && piece.data.externalUrl && (
+                    <a
+                      href={piece.data.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sienna text-sm font-medium no-underline hover:underline"
+                    >
+                      {piece.data.type === 'podcast' || piece.data.type === 'hosted' ? 'Listen' : 'Read'} &rarr;
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-cream-dark">
+    <div class="container-editorial text-center">
+      <h2 class="text-2xl font-display font-bold mb-4">Want to Chat?</h2>
+      <p class="type-lead mx-auto mb-8">
+        Interested in having me on your podcast or at your event?
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-6 py-3 bg-sienna text-cream font-medium text-sm tracking-wide uppercase no-underline hover:bg-sienna-dark transition-colors"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>
