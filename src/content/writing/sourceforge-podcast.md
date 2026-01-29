@@ -2,7 +2,7 @@
 title: "Decoding Consumer Taste with AI: Qloo"
 description: "A conversation about how AI can understand and predict human preferences."
 type: "podcast"
-publishedDate: 2024-08-20
+publishedDate: 2025-10-29
 venue: "SourceForge Podcast #76"
 featured: true
 thumbnail: "https://img.youtube.com/vi/KQPHHRygj4g/hqdefault.jpg"
