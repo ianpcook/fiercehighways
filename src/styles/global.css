@@ -167,6 +167,304 @@ p {
   animation-duration: 0.2s;
 }
 
+/* ========================================
+   ANIMATIONS & BOLD EFFECTS
+   ======================================== */
+
+/* Entrance Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(100px) skewY(3deg);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) skewY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes line-expand {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(139, 69, 19, 0);
+  }
+}
+
+/* Parallax scroll effect for backgrounds */
+@keyframes subtle-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-slide-right {
+  animation: slide-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-hero-reveal {
+  animation: hero-text-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-line-expand {
+  animation: line-expand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: left;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Scroll-triggered animations (starts hidden, revealed by IntersectionObserver) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bold hover effects */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(44, 36, 32, 0.3);
+}
+
+.hover-scale {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow {
+  transition: box-shadow 0.4s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 69, 19, 0.3);
+}
+
+/* Grain texture overlay */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Road line accent */
+.road-line {
+  position: relative;
+}
+
+.road-line::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--color-sienna);
+}
+
+/* Diagonal stripe pattern (highway warning style) */
+.highway-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(139, 69, 19, 0.1) 10px,
+    rgba(139, 69, 19, 0.1) 20px
+  );
+}
+
+/* Bold button style */
+.btn-fierce {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-fierce::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-fierce:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -5px rgba(139, 69, 19, 0.5);
+}
+
+.btn-fierce:hover::before {
+  transform: translateX(100%);
+}
+
+/* Card with bold border animation */
+.card-bold {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.card-bold::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--color-sienna);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-bold:hover {
+  transform: translateY(-4px);
+}
+
+.card-bold:hover::before {
+  width: 100%;
+}
+
+/* Dramatic text shadow for headlines */
+.text-shadow-dramatic {
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Split text effect for hero */
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+
+.split-line span {
+  display: block;
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),
@@ -176,5 +474,23 @@ p {
 
   html {
     scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-in,
+  .animate-hero-reveal,
+  .scroll-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .card-bold:hover {
+    transform: none;
   }
 }

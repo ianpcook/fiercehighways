@@ -43,50 +43,64 @@ const services = [
   description="Working AI in days, not decks in weeks. We build, prove, and ship—no roadmaps to nowhere."
 >
   <!-- Hero with Highway Imagery -->
-  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
-    <!-- Background Image -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden grain-overlay">
+    <!-- Background Image with subtle zoom -->
     <div class="absolute inset-0">
       <img
         src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80"
         alt="Highway stretching into the distance"
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover scale-105"
+        style="animation: subtle-zoom 20s ease-in-out infinite alternate;"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/80 to-ink/50"></div>
     </div>
 
     <!-- Content -->
     <div class="relative container-wide py-24">
-      <div class="max-w-3xl">
-        <h1 class="text-5xl md:text-7xl font-display font-bold text-cream mb-6 leading-tight">
-          Fierce<br />Highways
+      <div class="max-w-4xl">
+        <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-cream mb-6 leading-none tracking-tight text-shadow-dramatic">
+          <span class="split-line">
+            <span class="animate-hero-reveal inline-block">Fierce</span>
+          </span>
+          <span class="split-line">
+            <span class="animate-hero-reveal delay-200 inline-block text-sienna">Highways</span>
+          </span>
         </h1>
-        <p class="text-xl md:text-2xl text-cream/90 mb-4 font-display">
+        <div class="w-24 h-1 bg-sienna mb-8 animate-line-expand delay-400"></div>
+        <p class="text-xl md:text-2xl text-cream/90 mb-4 font-display animate-fade-up delay-500">
           AI Prototyping & Tactical Consulting
         </p>
-        <p class="text-lg text-cream/70 max-w-xl mb-10 leading-relaxed">
+        <p class="text-lg md:text-xl text-cream/70 max-w-xl mb-12 leading-relaxed animate-fade-up delay-600">
           You don't need a roadmap. You need to ship. We build working AI fast, prove what works, and get it into production.
         </p>
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-4 animate-fade-up delay-700">
           <a
             href="/contact"
-            class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-light transition-colors"
+            class="btn-fierce inline-block px-10 py-5 bg-sienna text-cream font-medium tracking-wide uppercase no-underline text-lg"
           >
             Start a Project
           </a>
           <a
             href="/work"
-            class="inline-block px-8 py-4 border-2 border-cream/40 text-cream font-medium tracking-wide uppercase no-underline hover:border-cream hover:bg-cream/10 transition-colors"
+            class="inline-block px-10 py-5 border-2 border-cream/40 text-cream font-medium tracking-wide uppercase no-underline hover:border-cream hover:bg-cream/10 transition-all duration-300"
           >
             See the Work
           </a>
         </div>
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in delay-800">
+      <div class="w-6 h-10 border-2 border-cream/40 rounded-full flex justify-center pt-2">
+        <div class="w-1 h-2 bg-cream/60 rounded-full animate-bounce"></div>
+      </div>
+    </div>
   </section>
 
   <!-- Services -->
-  <section class="relative section-spacing overflow-hidden">
+  <section class="relative section-spacing overflow-hidden grain-overlay">
     <div class="absolute inset-0">
       <img
         src="/images/backgrounds/mountain-road.jpg"
@@ -94,83 +108,111 @@ const services = [
         class="w-full h-full object-cover"
         loading="lazy"
       />
-      <div class="absolute inset-0 bg-ink/85"></div>
+      <div class="absolute inset-0 bg-ink/90"></div>
     </div>
-    <div class="relative container-wide">
-      <p class="label text-sienna mb-4">What We Do</p>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-12 max-w-2xl">
+    <div class="relative container-wide z-10">
+      <p class="label text-sienna mb-4 scroll-reveal">What We Do</p>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-cream mb-4 max-w-3xl scroll-reveal road-line text-shadow-dramatic">
         Build it. Prove it. Ship it.
       </h2>
+      <p class="text-cream/60 text-lg mb-16 scroll-reveal">No decks. No delays. Just results.</p>
 
       <div class="grid md:grid-cols-3 gap-8">
-        {services.map(({ title, description }) => (
-          <div class="border border-cream/20 p-8 hover:border-sienna transition-colors bg-ink/40 backdrop-blur-sm">
-            <h3 class="text-xl font-display font-bold text-cream mb-4">{title}</h3>
-            <p class="text-cream/70 leading-relaxed">{description}</p>
+        {services.map(({ title, description }, index) => (
+          <div
+            class="card-bold border border-cream/20 p-10 bg-ink/50 backdrop-blur-sm scroll-reveal hover-glow"
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            <div class="w-12 h-1 bg-sienna mb-6"></div>
+            <h3 class="text-2xl font-display font-bold text-cream mb-4">{title}</h3>
+            <p class="text-cream/70 leading-relaxed text-lg">{description}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Highway Image Break -->
-  <section class="relative h-80 overflow-hidden">
+  <!-- Highway Image Break with Parallax Effect -->
+  <section class="relative h-96 overflow-hidden img-zoom">
     <img
       src="/images/backgrounds/winding-road.jpg"
       alt="Winding mountain road"
       class="w-full h-full object-cover"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-ink/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink/40"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <p class="text-cream/80 text-2xl md:text-3xl font-display font-bold tracking-wide text-shadow-dramatic scroll-reveal">
+        The fastest route from idea to impact.
+      </p>
+    </div>
   </section>
 
   <!-- Work Preview Section -->
   <section class="section-spacing">
     <div class="container-wide">
-      <p class="label text-sienna mb-4">Selected Work</p>
-      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
+      <p class="label text-sienna mb-4 scroll-reveal">Selected Work</p>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 scroll-reveal road-line">
         Projects that shipped.
       </h2>
+      <p class="text-ink-light text-lg mb-12 scroll-reveal">Real results. Not slide decks.</p>
 
-      <div class="grid md:grid-cols-3 gap-8 mb-8">
-        {featuredWork.map((project) => (
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        {featuredWork.map((project, index) => (
           <a
             href={`/work/${project.slug}`}
-            class="block border border-parchment p-6 no-underline hover:border-sienna transition-colors group"
+            class="card-bold block border border-parchment p-8 no-underline group scroll-reveal hover-lift"
+            style={`transition-delay: ${index * 100}ms`}
           >
-            <p class="label mb-2">{project.data.industry}</p>
-            <h3 class="text-xl font-display font-bold mb-3 group-hover:text-sienna transition-colors">
+            <p class="label mb-3 text-sienna">{project.data.industry}</p>
+            <h3 class="text-2xl font-display font-bold mb-4 group-hover:text-sienna transition-colors">
               {project.data.title}
             </h3>
-            <p class="text-ink-light text-sm mb-4">
+            <p class="text-ink-light mb-6 leading-relaxed">
               {project.data.description}
             </p>
-            <span class="text-sienna text-sm font-medium">Read more &rarr;</span>
+            <span class="text-sienna font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+              Read more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </span>
           </a>
         ))}
       </div>
 
-      <a href="/work" class="text-sienna font-medium">View all work &rarr;</a>
+      <a href="/work" class="text-sienna font-medium text-lg inline-flex items-center gap-2 hover:gap-4 transition-all scroll-reveal">
+        View all work
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
     </div>
   </section>
 
   <!-- Philosophy Section -->
-  <section class="section-spacing bg-cream-dark">
-    <div class="container-editorial">
-      <p class="label text-sienna mb-4">Philosophy</p>
-      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
-        Tactics, not strategy. Code, not decks.
+  <section class="section-spacing bg-cream-dark highway-stripes relative overflow-hidden">
+    <div class="container-editorial relative z-10">
+      <p class="label text-sienna mb-4 scroll-reveal">Philosophy</p>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-10 scroll-reveal">
+        <span class="road-line inline-block">Tactics, not strategy.</span><br />
+        <span class="text-sienna">Code, not decks.</span>
       </h2>
       <div class="prose max-w-none">
-        <p class="text-ink-light leading-relaxed mb-4">
+        <p class="text-ink-light leading-relaxed mb-6 text-lg md:text-xl scroll-reveal">
           Most AI consultants deliver PowerPoints. We deliver working software. You have an immediate problem—not a five-year roadmap problem. You need something that works now, that you can touch and test and ship.
         </p>
-        <p class="text-ink-light leading-relaxed">
+        <p class="text-ink-light leading-relaxed text-lg md:text-xl scroll-reveal">
           That's what we do. We build fast, we prove fast, we fail fast when we need to. No elaborate discovery phases. No "alignment workshops." Just the next right move, executed.
         </p>
       </div>
-      <div class="mt-10">
-        <a href="/about" class="text-sienna font-medium">Meet the principal &rarr;</a>
+      <div class="mt-12 scroll-reveal">
+        <a href="/about" class="text-sienna font-medium text-lg inline-flex items-center gap-2 hover:gap-4 transition-all">
+          Meet the principal
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -178,46 +220,59 @@ const services = [
   <!-- Recent Writing Section -->
   <section class="section-spacing">
     <div class="container-wide">
-      <p class="label text-sienna mb-4">Media</p>
-      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8">
+      <p class="label text-sienna mb-4 scroll-reveal">Media</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-10 scroll-reveal road-line">
         Podcasts & Writing
       </h2>
 
-      <div class="space-y-6 mb-8">
-        {recentWriting.map((piece) => (
-          <article class="flex gap-6 items-start pb-6 border-b border-parchment last:border-0">
+      <div class="space-y-0 mb-12">
+        {recentWriting.map((piece, index) => (
+          <article
+            class="flex gap-6 items-start py-8 border-b border-parchment last:border-0 scroll-reveal hover:bg-cream-dark/50 transition-colors -mx-4 px-4"
+            style={`transition-delay: ${index * 100}ms`}
+          >
             <div class="flex-1">
-              <p class="label mb-2">{typeLabels[piece.data.type]}</p>
-              <h3 class="text-xl font-display font-bold mb-2">
+              <p class="label mb-2 text-sienna">{typeLabels[piece.data.type]}</p>
+              <h3 class="text-xl md:text-2xl font-display font-bold mb-2">
                 {piece.data.externalUrl ? (
                   <a
                     href={piece.data.externalUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="no-underline hover:text-sienna"
+                    class="no-underline hover:text-sienna transition-colors"
                   >
                     {piece.data.title}
                   </a>
                 ) : (
-                  <a href="/media" class="no-underline hover:text-sienna">
+                  <a href="/media" class="no-underline hover:text-sienna transition-colors">
                     {piece.data.title}
                   </a>
                 )}
               </h3>
-              <p class="text-ink-light text-sm">
+              <p class="text-ink-light">
                 {piece.data.venue ? `${piece.data.venue} · ` : ''}{formatDate(piece.data.publishedDate)}
               </p>
+            </div>
+            <div class="hidden md:block">
+              <svg class="w-6 h-6 text-stone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
             </div>
           </article>
         ))}
       </div>
 
-      <a href="/media" class="text-sienna font-medium">View all media &rarr;</a>
+      <a href="/media" class="text-sienna font-medium text-lg inline-flex items-center gap-2 hover:gap-4 transition-all scroll-reveal">
+        View all media
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
     </div>
   </section>
 
   <!-- Final CTA with Highway Image -->
-  <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+  <section class="relative min-h-[60vh] flex items-center overflow-hidden grain-overlay">
     <div class="absolute inset-0">
       <img
         src="https://images.unsplash.com/photo-1504204267155-aabd8eab58c3?w=1920&q=80"
@@ -225,22 +280,45 @@ const services = [
         class="w-full h-full object-cover"
         loading="lazy"
       />
-      <div class="absolute inset-0 bg-ink/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/80 to-ink/60"></div>
     </div>
 
-    <div class="relative container-editorial text-center py-20">
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream mb-6">
-        Got a problem? Let's solve it.
+    <div class="relative container-editorial text-center py-24 z-10">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-cream mb-8 text-shadow-dramatic scroll-reveal">
+        Got a problem?<br />
+        <span class="text-sienna">Let's solve it.</span>
       </h2>
-      <p class="text-lg text-cream/80 max-w-xl mx-auto mb-10">
+      <p class="text-xl text-cream/80 max-w-xl mx-auto mb-12 scroll-reveal">
         Tell me what's stuck. We'll figure out the fastest path to unstuck.
       </p>
       <a
         href="/contact"
-        class="inline-block px-8 py-4 bg-sienna text-cream font-medium tracking-wide uppercase no-underline hover:bg-sienna-light transition-colors"
+        class="btn-fierce inline-block px-12 py-5 bg-sienna text-cream font-medium tracking-wide uppercase no-underline text-lg scroll-reveal"
       >
         Start a Conversation
       </a>
     </div>
   </section>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </BaseLayout>

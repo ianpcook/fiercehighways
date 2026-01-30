@@ -12,28 +12,32 @@ const isActive = (href: string): boolean =>
   href === '/' ? pathname === '/' : pathname.startsWith(href);
 ---
 
-<header class="border-b border-parchment">
-  <nav class="container-wide flex items-center justify-between py-6">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="container-wide flex items-center justify-between py-5">
     <a
       href="/"
-      class="font-display text-xl font-bold text-ink no-underline hover:text-sienna transition-colors"
+      class="font-display text-2xl font-bold no-underline transition-colors header-logo"
     >
-      Fierce Highways
+      <span class="text-ink header-text">Fierce</span>
+      <span class="text-sienna">Highways</span>
     </a>
 
-    <ul class="flex gap-8">
+    <ul class="flex gap-10">
       {navItems.map(({ href, label }) => (
         <li>
           <a
             href={href}
             class:list={[
-              'text-sm font-medium tracking-wide uppercase no-underline transition-colors',
+              'nav-link text-sm font-medium tracking-wider uppercase no-underline transition-all duration-300 relative',
               isActive(href)
                 ? 'text-sienna'
-                : 'text-ink-light hover:text-sienna',
+                : 'header-nav-text hover:text-sienna',
             ]}
           >
             {label}
+            {isActive(href) && (
+              <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-sienna"></span>
+            )}
           </a>
         </li>
       ))}
@@ -41,9 +45,41 @@ const isActive = (href: string): boolean =>
   </nav>
 </header>
 
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
+
 <style>
   header {
-    background-color: var(--color-bg-page);
+    background-color: transparent;
+  }
+
+  header.scrolled {
+    background-color: rgba(250, 248, 245, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(44, 36, 32, 0.08);
+  }
+
+  /* When on hero (dark bg), make text light */
+  header:not(.scrolled) .header-text {
+    color: var(--color-cream);
+  }
+
+  header:not(.scrolled) .header-nav-text {
+    color: rgba(250, 248, 245, 0.8);
+  }
+
+  header:not(.scrolled) .header-nav-text:hover {
+    color: var(--color-cream);
+  }
+
+  /* When scrolled (light bg), make text dark */
+  header.scrolled .header-text {
+    color: var(--color-ink);
+  }
+
+  header.scrolled .header-nav-text {
+    color: var(--color-ink-light);
   }
 
   nav a {
@@ -53,4 +89,39 @@ const isActive = (href: string): boolean =>
   nav a:first-child {
     font-family: var(--font-display);
   }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-sienna);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
 </style>
+
+<script>
+  const header = document.getElementById('site-header');
+  let lastScroll = 0;
+
+  const handleScroll = () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 100) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Check initial state
+</script>
