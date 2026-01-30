@@ -93,7 +93,7 @@ const services = [
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in delay-800">
-      <a href="#services" class="block scroll-indicator">
+      <a href="#services" class="block scroll-indicator" aria-label="Scroll to services section">
         <div class="w-6 h-10 border-2 border-cream/40 rounded-full flex justify-center pt-2">
           <div class="w-1 h-3 bg-cream/60 rounded-full"></div>
         </div>
@@ -121,10 +121,10 @@ const services = [
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-cream mb-4 max-w-3xl scroll-reveal road-line text-shadow-dramatic">
         Build it. Prove it. Ship it.
       </h2>
-      <p class="text-cream/60 text-lg mb-16 scroll-reveal">No decks. No delays. Just results.</p>
+      <p class="text-cream/60 text-lg mb-12 scroll-reveal">No decks. No delays. Just results.</p>
 
       <div class="grid md:grid-cols-3 gap-8 stagger-children" id="services-grid">
-        {services.map(({ title, description }, index) => (
+        {services.map(({ title, description }) => (
           <div
             class="card-bold border border-cream/20 p-10 bg-ink/50 backdrop-blur-sm hover-glow focus-ring"
             tabindex="0"
@@ -163,7 +163,7 @@ const services = [
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 scroll-reveal road-line">
         Projects that shipped.
       </h2>
-      <p class="text-ink-light text-lg mb-12 scroll-reveal">Real results. Not slide decks.</p>
+      <p class="text-ink-light text-lg mb-10 scroll-reveal">Real results. Not slide decks.</p>
 
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         {featuredWork.map((project, index) => (
@@ -229,7 +229,7 @@ const services = [
   <section class="section-spacing">
     <div class="container-wide">
       <p class="label text-sienna mb-4 scroll-reveal">Media</p>
-      <h2 class="text-3xl md:text-4xl font-display font-bold mb-10 scroll-reveal road-line">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-10 scroll-reveal road-line">
         Podcasts & Writing
       </h2>
 
@@ -261,7 +261,7 @@ const services = [
                 {piece.data.venue ? `${piece.data.venue} · ` : ''}{formatDate(piece.data.publishedDate)}
               </p>
             </div>
-            <div class="hidden md:block">
+            <div class="hidden md:block" aria-hidden="true">
               <svg class="w-6 h-6 text-stone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
@@ -301,7 +301,7 @@ const services = [
       </p>
       <a
         href="/contact"
-        class="btn-fierce speed-lines inline-block px-12 py-5 bg-sienna text-cream font-medium tracking-wide uppercase no-underline text-lg scroll-reveal"
+        class="btn-fierce speed-lines inline-block px-12 py-5 bg-sienna text-cream font-medium tracking-wide uppercase no-underline text-lg scroll-reveal focus-ring"
       >
         Start a Conversation
       </a>

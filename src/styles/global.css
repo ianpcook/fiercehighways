@@ -607,7 +607,7 @@ p {
   background: var(--color-sienna);
   transform-origin: left;
   transform: scaleX(0);
-  z-index: 100;
+  z-index: 60; /* Above header (50) */
   transition: transform 0.1s linear;
 }
 
@@ -952,21 +952,65 @@ p {
     scroll-behavior: auto;
   }
 
+  /* Disable all entrance and scroll animations */
   .animate-fade-up,
   .animate-fade-in,
   .animate-slide-left,
   .animate-slide-right,
   .animate-scale-in,
   .animate-hero-reveal,
-  .scroll-reveal {
+  .animate-line-expand,
+  .scroll-reveal,
+  .scroll-indicator,
+  .breathe {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
 
+  /* Disable stagger children animations */
+  .stagger-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable hover transforms */
   .hover-lift:hover,
   .hover-scale:hover,
-  .card-bold:hover {
+  .card-bold:hover,
+  .tilt-hover:hover {
     transform: none;
+  }
+
+  /* Disable continuous animations */
+  .road-animated {
+    animation: none !important;
+  }
+
+  /* Disable speed lines effect */
+  .speed-lines::before,
+  .speed-lines::after {
+    display: none;
+  }
+
+  /* Disable parallax */
+  .parallax-slow,
+  .parallax-fast {
+    transform: none !important;
+  }
+
+  /* Disable image zoom animation */
+  .img-zoom img {
+    transition: none !important;
+  }
+
+  /* Simplify button effects */
+  .btn-fierce::before {
+    display: none;
+  }
+
+  .btn-outline::after {
+    display: none;
   }
 }
