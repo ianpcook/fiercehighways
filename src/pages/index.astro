@@ -108,11 +108,10 @@ const services = [
   <section id="services" class="relative section-spacing overflow-hidden grain-overlay">
     <div class="absolute inset-0">
       <img
-        src="/images/backgrounds/mountain-road.jpg"
-        alt="Mountain road at dusk"
-        class="w-full h-full object-cover parallax-slow"
+        src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=1920&q=80"
+        alt="Desert highway stretching into the distance"
+        class="w-full h-full object-cover scale-110"
         loading="lazy"
-        id="services-bg"
       />
       <div class="absolute inset-0 bg-ink/90"></div>
     </div>
@@ -347,21 +346,6 @@ const services = [
     };
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-    // Parallax effect for background images
-    const parallaxElements = document.querySelectorAll('.parallax-slow');
-    const updateParallax = () => {
-      const scrollTop = window.scrollY;
-      parallaxElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-        if (inView) {
-          const speed = 0.3;
-          const yPos = (scrollTop - el.offsetTop) * speed;
-          el.style.transform = `translateY(${yPos}px) scale(1.1)`;
-        }
-      });
-    };
-    window.addEventListener('scroll', updateParallax, { passive: true });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
