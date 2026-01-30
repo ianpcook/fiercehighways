@@ -16,9 +16,9 @@ const isActive = (href: string): boolean =>
   <nav class="container-wide flex items-center justify-between py-5">
     <a
       href="/"
-      class="font-display text-2xl font-bold no-underline transition-colors header-logo"
+      class="header-logo font-display text-2xl font-bold no-underline transition-colors"
     >
-      <span class="text-ink header-text">Fierce</span>
+      <span class="logo-text">Fierce</span>
       <span class="text-sienna">Highways</span>
     </a>
 
@@ -28,16 +28,11 @@ const isActive = (href: string): boolean =>
           <a
             href={href}
             class:list={[
-              'nav-link text-sm font-medium tracking-wider uppercase no-underline transition-all duration-300 relative',
-              isActive(href)
-                ? 'text-sienna'
-                : 'header-nav-text hover:text-sienna',
+              'nav-item text-sm font-medium tracking-wider uppercase no-underline transition-all duration-300 relative',
+              isActive(href) ? 'active' : '',
             ]}
           >
             {label}
-            {isActive(href) && (
-              <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-sienna"></span>
-            )}
           </a>
         </li>
       ))}
@@ -48,61 +43,62 @@ const isActive = (href: string): boolean =>
 <!-- Spacer for fixed header -->
 <div class="h-16"></div>
 
-<style>
-  header {
-    background-color: transparent;
-  }
-
-  header.scrolled {
-    background-color: rgba(250, 248, 245, 0.95);
+<style is:global>
+  /* Always show solid background - simpler and more reliable */
+  #site-header {
+    background-color: rgba(250, 248, 245, 0.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232, 228, 222, 0.5);
+  }
+
+  #site-header.scrolled {
     box-shadow: 0 4px 30px rgba(44, 36, 32, 0.08);
   }
 
-  /* When on hero (dark bg), make text light */
-  header:not(.scrolled) .header-text {
-    color: var(--color-cream);
+  /* Logo text - always dark on light header */
+  #site-header .logo-text {
+    color: #2C2420;
+    transition: color 0.3s ease;
   }
 
-  header:not(.scrolled) .header-nav-text {
-    color: rgba(250, 248, 245, 0.8);
+  /* Nav items - always dark on light header */
+  #site-header .nav-item {
+    color: #4A423D;
+    transition: color 0.3s ease;
   }
 
-  header:not(.scrolled) .header-nav-text:hover {
-    color: var(--color-cream);
+  #site-header .nav-item:hover {
+    color: #8B4513;
   }
 
-  /* When scrolled (light bg), make text dark */
-  header.scrolled .header-text {
-    color: var(--color-ink);
+  #site-header .nav-item.active {
+    color: #8B4513;
   }
 
-  header.scrolled .header-nav-text {
-    color: var(--color-ink-light);
-  }
-
-  nav a {
-    font-family: var(--font-body);
-  }
-
-  nav a:first-child {
-    font-family: var(--font-display);
-  }
-
-  .nav-link::after {
+  /* Underline effect */
+  #site-header .nav-item::after {
     content: '';
     position: absolute;
     bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-sienna);
+    background-color: #8B4513;
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .nav-link:hover::after {
+  #site-header .nav-item:hover::after,
+  #site-header .nav-item.active::after {
     width: 100%;
+  }
+
+  #site-header .header-logo {
+    font-family: var(--font-display);
+  }
+
+  #site-header .nav-item {
+    font-family: var(--font-body);
   }
 </style>
 
