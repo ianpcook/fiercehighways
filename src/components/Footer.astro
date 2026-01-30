@@ -8,25 +8,33 @@ const socialLinks = [
 ];
 ---
 
-<footer class="border-t border-parchment bg-cream-dark">
-  <div class="container-wide py-12">
+<footer class="border-t border-parchment bg-cream-dark relative overflow-hidden">
+  <!-- Subtle road stripe accent -->
+  <div class="absolute right-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-parchment via-sienna/20 to-parchment"></div>
+
+  <div class="container-wide py-12 relative">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
       <div>
-        <p class="text-sm text-stone">
-          &copy; {currentYear} Ian Cook, PhD. All rights reserved.
+        <p class="font-display text-lg font-bold text-ink mb-2">
+          Fierce Highways
         </p>
-        <p class="text-xs text-stone mt-1">
-          Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-sienna">Astro</a>
+        <p class="text-sm text-stone">
+          &copy; {currentYear} Ian Cook, PhD
+        </p>
+        <p class="text-xs text-stone mt-2 group">
+          Built with
+          <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-stone hover:text-sienna transition-colors link-underline">Astro</a>
+          <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
         </p>
       </div>
 
-      <div class="flex gap-6">
+      <div class="flex gap-8">
         {socialLinks.map(({ href, label }) => (
           <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-stone hover:text-sienna transition-colors no-underline"
+            class="text-stone hover:text-sienna transition-colors no-underline link-underline text-sm font-medium"
             aria-label={label}
           >
             {label}

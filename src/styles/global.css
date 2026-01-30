@@ -648,6 +648,271 @@ p {
   transform: scale(1);
 }
 
+/* ========================================
+   DELIGHT MOMENTS
+   ======================================== */
+
+/* Glowing accent on hover - like headlights */
+.glow-on-hover {
+  position: relative;
+}
+
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 69, 19, 0.3) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-on-hover:hover::before {
+  opacity: 1;
+}
+
+/* Road stripe animation - continuous movement */
+@keyframes road-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
+}
+
+.road-animated {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 15px,
+    rgba(250, 248, 245, 0.15) 15px,
+    rgba(250, 248, 245, 0.15) 25px
+  );
+  background-size: 4px 40px;
+  animation: road-stripes 1s linear infinite;
+}
+
+/* Speedometer-style counter animation */
+@keyframes speed-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.speed-pulse:hover {
+  animation: speed-pulse 0.4s ease;
+}
+
+/* Text highlight on hover - like a marker */
+.highlight-hover {
+  position: relative;
+  display: inline;
+}
+
+.highlight-hover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  right: -2px;
+  height: 40%;
+  background: rgba(139, 69, 19, 0.15);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.highlight-hover:hover::before {
+  transform: scaleX(1);
+}
+
+/* Confident text emphasis */
+.text-fierce {
+  position: relative;
+  display: inline-block;
+}
+
+.text-fierce::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.15em;
+  background: var(--color-sienna);
+  opacity: 0.4;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.text-fierce:hover::after {
+  opacity: 0.6;
+  height: 0.2em;
+}
+
+/* Quote mark decoration */
+.quote-styled {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.quote-styled::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.2em;
+  font-family: var(--font-display);
+  font-size: 3em;
+  line-height: 1;
+  color: var(--color-sienna);
+  opacity: 0.3;
+}
+
+/* Subtle breathing animation for emphasis */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Card tilt on hover - subtle 3D effect */
+.tilt-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.tilt-hover:hover {
+  transform: perspective(1000px) rotateX(-2deg) rotateY(2deg) translateY(-4px);
+}
+
+/* Success checkmark animation */
+@keyframes checkmark-draw {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark-animate {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: checkmark-draw 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Cursor trail effect for CTA buttons */
+.cursor-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-glow::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Number counter styling */
+.counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Reveal text character by character */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40, end) forwards;
+}
+
+/* Subtle noise texture for depth */
+.texture-noise {
+  position: relative;
+}
+
+.texture-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* "Speed lines" effect for action elements */
+.speed-lines {
+  position: relative;
+}
+
+.speed-lines::before,
+.speed-lines::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-sienna), transparent);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.speed-lines::before {
+  right: 100%;
+  transform: translateY(-50%) translateX(10px);
+}
+
+.speed-lines::after {
+  left: 100%;
+  transform: translateY(-50%) translateX(-10px) rotate(180deg);
+}
+
+.speed-lines:hover::before {
+  opacity: 0.6;
+  transform: translateY(-50%) translateX(0);
+}
+
+.speed-lines:hover::after {
+  opacity: 0.6;
+  transform: translateY(-50%) translateX(0) rotate(180deg);
+}
+
+/* Console easter egg styles */
+.console-surprise {
+  display: none;
+}
+
 /* Dramatic text shadow for headlines */
 .text-shadow-dramatic {
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
