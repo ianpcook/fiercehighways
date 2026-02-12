@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -83,3 +84,6 @@ const socialImageURL = new URL(image, Astro.site);
 
 <!-- View Transitions -->
 <ViewTransitions fallback="swap" />
+
+<!-- Vercel Web Analytics -->
+<Analytics />
