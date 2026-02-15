@@ -2,7 +2,7 @@
 title: "AI That Ships: From Proof-of-Concept to Production"
 description: "A conversation about bridging the gap between AI prototypes and production systems — what it takes to move from demo to deployed."
 type: "podcast"
-publishedDate: 2026-02-01
+publishedDate: 2026-02-05
 venue: "The Human Protocol Podcast S2E5"
 featured: true
 thumbnail: "https://img.youtube.com/vi/w81VKbVnlV8/hqdefault.jpg"
