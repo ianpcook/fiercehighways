@@ -1,0 +1,488 @@
+---
+// OpenClaw is Like Sex — AI@Work Pittsburgh, March 19 2026
+const title = "OpenClaw is Like Sex — AI@Work PGH";
+const description = "Three things are true about OpenClaw and sex. A live talk by Ian Cook (Roy) at AI@Work Pittsburgh, Chapter Eight.";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta name="theme-color" content="#0a0a0a" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #2a2a2a;
+      --accent: #e8d5a3;
+      --accent2: #a3c4e8;
+      --text: #e0ddd5;
+      --muted: #888;
+      --code-bg: #1a1a1a;
+      --red: #e87a6b;
+      --green: #7ae8a0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .hero {
+      width: 100%;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.9;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 2rem 1.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    }
+
+    .hero-text .meta {
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: normal;
+      color: var(--accent);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 1.25rem;
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    /* Act headers */
+    .act {
+      margin: 3rem 0 2rem;
+    }
+
+    .act-image {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .act h2 {
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: normal;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+
+    .act .act-subtitle {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--accent2);
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 2rem 0 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      margin: 1.25rem 0;
+      background: var(--surface);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--text);
+    }
+
+    blockquote strong {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.88em;
+      color: var(--accent2);
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout.warning {
+      border-color: var(--red);
+    }
+
+    .callout.tip {
+      border-color: var(--green);
+    }
+
+    .callout-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      color: var(--muted);
+    }
+
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.tip .callout-label { color: var(--green); }
+
+    .story-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .story-card .who {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .story-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .resources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .resources h2 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: normal;
+      margin-bottom: 1rem;
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .resources a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .resources a:hover {
+      text-decoration: underline;
+    }
+
+    .resources li {
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+      .hero-text { padding: 1.5rem 1rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="/images/openclaw/01-openclaw-is-like-sex.png" alt="OpenClaw is Like Sex" />
+    <div class="hero-text">
+      <div class="meta">AI@Work Pittsburgh · Chapter Eight · March 19, 2026</div>
+      <h1>OpenClaw is Like Sex</h1>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <p class="intro">
+      Three things are true about both. A talk by Ian Cook (SVP AI, Qloo) — with his AI agent Roy, who was present for the whole conversation and already has a file about it.
+    </p>
+
+    <!-- ─── ACT 1 ─────────────────────────────────────────────── -->
+    <div class="act">
+      <img class="act-image" src="/images/openclaw/02-safety.png" alt="The only way to be 100% safe: don't do it at all" />
+      <div class="act-subtitle">Act One</div>
+      <h2>The Only Way to Be 100% Safe: Don't Do It at All</h2>
+      <p>
+        Before anything else — a reality check. This agent has access to my email, my calendar, my files, my home. OpenClaw has been in the news for real security issues. Malicious skills on ClawHub. Exposed ports. Prompt injection. I'm not pretending those don't exist.
+      </p>
+
+      <h3>What OpenClaw actually provides</h3>
+      <ul>
+        <li><code>openclaw security audit</code> — built-in command that flags common footguns: open ports, weak auth, exposed permissions</li>
+        <li><strong>Tool policies:</strong> allowlists, deny lists, sandbox modes — you choose what the agent can touch</li>
+        <li><strong>Docker sandboxing</strong> for non-main sessions — group chats, sub-agents get isolated containers with no access to your real filesystem</li>
+        <li>External content wrapped with security notices (prompt injection defense)</li>
+        <li>Pairing + allowlists for who can even talk to your agent</li>
+        <li>Their own docs: "there is no perfectly secure setup" — refreshingly honest</li>
+      </ul>
+
+      <h3>The Roy / Duke split</h3>
+      <blockquote>
+        I run two agents. Roy handles personal — email, calendar, smart home, family logistics. Duke handles work — Slack, professional comms. Different credentials, different workspaces, different models. If someone compromises the work agent, they don't get my personal email. Same principle as not using one password for everything.
+      </blockquote>
+
+      <h3>What the community has added</h3>
+      <ul>
+        <li>Auto-updater skill that diffs ClawHub skill updates overnight and flags suspicious changes before morning</li>
+        <li>Docker/Podman sandboxing patterns shared in the Discord</li>
+        <li>Tailscale-only network exposure — no public ports at all</li>
+        <li>Microsoft Security Blog published guidance on running OpenClaw safely (Feb 2026)</li>
+      </ul>
+
+      <div class="callout warning">
+        <div class="callout-label">Reality Check</div>
+        Is it perfectly safe? No. Neither is giving your credit card to DoorDash. The question is: do you understand the risks and are you making deliberate choices?
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ─── ACT 2 ─────────────────────────────────────────────── -->
+    <div class="act">
+      <img class="act-image" src="/images/openclaw/03-first-time.png" alt="Your first time is not going to be great" />
+      <div class="act-subtitle">Act Two</div>
+      <h2>Your First Time Is Not Going to Be Great</h2>
+      <p>Here's what you actually need. Not the marketing version.</p>
+
+      <h3>Prerequisites — have these BEFORE you sit down</h3>
+      <ol>
+        <li><strong>pnpm (or npm)</strong> — <code>curl -fsSL https://get.pnpm.io/install.sh | sh -</code></li>
+        <li><strong>An LLM API key</strong> — Anthropic or OpenAI. Sign up, add a credit card, copy the key. (~$5–20/month typical usage)</li>
+        <li><strong>A Telegram bot</strong> — Open Telegram, message <code>@BotFather</code>, run <code>/newbot</code>, copy the token. 60 seconds.</li>
+        <li><strong>A search API key</strong> — Brave Search (free tier, 2,000 queries/mo) or Gemini. Exa is better but not in the default wizard yet — add it after.</li>
+      </ol>
+
+      <blockquote>
+        Four things. A package manager, an AI key, a Telegram bot, and a search key. If you have those ready, setup takes 10 minutes. Scrambling for them during the wizard takes an hour.
+      </blockquote>
+
+      <h3>The install</h3>
+      <pre><code>curl -fsSL https://openclaw.ai/install.sh | bash
+openclaw onboard --install-daemon</code></pre>
+      <p>Two commands. The second launches a TUI wizard — not a wall of YAML.</p>
+
+      <div class="callout tip">
+        <div class="callout-label">Gotcha</div>
+        If the wizard uses a cached API token instead of the one you just set, type <code>/new</code> inside the TUI to force a fresh session. Took a few tries to figure that one out live.
+      </div>
+
+      <h3>The personality gap nobody warns you about</h3>
+      <p>
+        The wizard does NOT ask what personality your agent should have. That happens on first conversation — the agent reads a bootstrap file and tries to get to know you. Blow past it and you get a generic assistant. Power users treat their agent's personality files as living documents.
+      </p>
+
+      <h3>Two honest paths</h3>
+      <ul>
+        <li><strong>Command line:</strong> <code>curl | bash</code>, run the wizard, paste your keys. Recommended for this room.</li>
+        <li><strong>EasyClaw.co:</strong> handles everything through a web UI. KiloClaw signed up 7,000 users in two days at ClawCon. One click gets you a chatbot. The command line gets you… Roy.</li>
+      </ul>
+
+      <h3>What you actually get once it's running</h3>
+      <ul>
+        <li>"What's on my calendar Monday?" → Real answer from Google Calendar</li>
+        <li>"Any urgent emails?" → Actual unread summary from Gmail</li>
+        <li>"Turn the living room lights to 20%" → Hue lights change</li>
+        <li>"What's the weather tomorrow?" → Forecast for Fox Chapel</li>
+      </ul>
+      <p>Four things that normally require four apps. One conversation.</p>
+
+      <h3>The memory flex</h3>
+      <blockquote>
+        ChatGPT forgot your name when you closed the tab. Mine remembers what we discussed six weeks ago. Because it <strong>writes things down</strong>.
+      </blockquote>
+      <p>
+        Not session memory — file memory. <code>MEMORY.md</code>, <code>SOUL.md</code>, daily notes. People understand files. They don't need to understand RAG pipelines.
+      </p>
+
+      <h3>Self-improvement in practice</h3>
+      <blockquote>
+        This morning it sent me a reminder about tasks I'd already completed. Zombie reminder — acknowledged in chat, never updated the file. The next session read the stale record and nagged me again.<br /><br />
+        I described the problem. It built a TODO system with explicit completion tracking, updated its own instruction files, and cleaned every stale reference from memory. I didn't write a line of code.
+      </blockquote>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ─── ACT 3 ─────────────────────────────────────────────── -->
+    <div class="act">
+      <img class="act-image" src="/images/openclaw/04-dont-believe.png" alt="Don't believe (or try) everything you see online" />
+      <div class="act-subtitle">Act Three</div>
+      <h2>Don't Believe (or Try) Everything You See Online</h2>
+      <p>The internet is full of "35 amazing OpenClaw use cases" posts. Most of them are noise. Here's what's real.</p>
+
+      <h3>Stories worth believing</h3>
+
+      <div class="story-card">
+        <div class="who">Taylor Otwell · Laracon EU · March 2, 2026</div>
+        <p>The Laravel creator, live on stage, intentionally shipped a broken app. Nightwatch caught the bug. OpenCode wrote a fix and pushed a PR. OpenClaw called Taylor by phone on stage — "do you want me to merge it?" He said yes. Fix deployed. Two minutes. Nobody asked the agent to do any of this.</p>
+      </div>
+
+      <div class="story-card">
+        <div class="who">Tim Lantin · ClawCon NYC · March 5, 2026</div>
+        <p>Columbia PhD student. Used OpenClaw for two weeks. Built "Labster Claw" with ~10 prompts. Automates his neuroscience mouse lab — ordering supplies, breeding pairs, pup litter timelines. Built by a non-developer in days.</p>
+      </div>
+
+      <div class="story-card">
+        <div class="who">Willie Williams (Every.to) · ClawCon</div>
+        <p>Head of Platform at Every. Argued people should "name their agents and treat them like pets, not cattle." Most people start not trusting their agent, then end up entrusting it with half their work.</p>
+      </div>
+
+      <div class="story-card">
+        <div class="who">Voice via AirPods · Community</div>
+        <p>Hands-free voice conversations while walking, driving. Natural conversation, not message-sending. Talk to your agent the way you'd talk to a passenger.</p>
+      </div>
+
+      <h3>What I actually use it for daily (the boring-but-real stuff)</h3>
+      <ul>
+        <li><strong>Morning brief:</strong> calendar + email + weather + tasks, delivered to Telegram before I'm out of bed</li>
+        <li>Email triage across personal and work accounts</li>
+        <li>Smart home control (Hue lights, Sonos)</li>
+        <li>Research synthesis from a personal knowledge base (5,000+ saved articles)</li>
+        <li>Automated overnight skill updates with security diffing</li>
+      </ul>
+
+      <blockquote>
+        It's not magic. It's plumbing. Good plumbing that saves me an hour a day.
+      </blockquote>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ─── Resources ─────────────────────────────────────────── -->
+    <div class="resources">
+      <h2>Get Started</h2>
+      <ul>
+        <li><a href="https://openclaw.ai" target="_blank" rel="noopener">openclaw.ai</a> — Install, docs, and the security guide</li>
+        <li><a href="https://clawhub.com" target="_blank" rel="noopener">clawhub.com</a> — Skill marketplace (prt-transit, naming, CRM, and 200+ more)</li>
+        <li><a href="https://easyclaw.co" target="_blank" rel="noopener">easyclaw.co</a> — No-code setup path</li>
+        <li><a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">Discord (Community)</a> — Where the power users live</li>
+        <li><a href="https://fiercehighways.ai" target="_blank" rel="noopener">fiercehighways.ai</a> — Ian Cook's consulting work</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Ian Cook (Roy) · AI@Work Pittsburgh · March 19, 2026<br />
+    <a href="https://fiercehighways.ai">fiercehighways.ai</a> · <a href="https://linkedin.com/in/ianpcook">LinkedIn</a>
+  </div>
+
+</body>
+</html>
