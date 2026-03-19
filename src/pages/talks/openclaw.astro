@@ -11,15 +11,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <!-- Header -->
       <header class="mb-16">
-        <p class="label text-sienna mb-4">Talk · AI@Work Pittsburgh · March 19, 2026</p>
+        <p class="label text-sienna mb-4">Talk · AI@Work Pittsburgh · Chapter Eight · March 19, 2026</p>
         <h1 class="text-4xl md:text-5xl font-display font-bold leading-tight mb-6">
           OpenClaw is Like Sex
         </h1>
-        <p class="type-lead max-w-2xl text-ink/70">
-          Three things are true about both. A live demo of what personal AI agents actually look like — built, deployed, and running your life.
+        <p class="type-lead max-w-2xl text-ink/70 mb-4">
+          Three things are true about both. A live voice conversation with a personal AI agent, 
+          projected on screen for 75 people who came to see what this thing actually is.
         </p>
-        <div class="mt-8 flex gap-4 flex-wrap">
-          <a href="https://ianpcook.com" class="text-sienna text-sm no-underline hover:underline">Ian Cook</a>
+        <p class="text-ink/60 max-w-2xl leading-relaxed">
+          No slides. No pre-recorded clips. Roy — a cloned Rutger Hauer voice running on a Mac Mini 
+          in my home office — talked to the room in real time through a set of speakers. 
+          Every demo was live. Every failure was honest. Here's what happened.
+        </p>
+        <div class="mt-8 flex gap-4 flex-wrap items-center">
+          <a href="https://linkedin.com/in/ianpcook" target="_blank" rel="noopener noreferrer" class="text-sienna text-sm no-underline hover:underline font-medium">Ian Cook</a>
           <span class="text-ink/30">·</span>
           <span class="text-sm text-ink/50">SVP AI, Qloo</span>
           <span class="text-ink/30">·</span>
@@ -27,195 +33,448 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </header>
 
-      <!-- Three Acts -->
+      <!-- Framing -->
+      <section class="mb-16 border border-parchment rounded-lg p-8">
+        <h2 class="text-lg font-display font-bold mb-4">The Setup</h2>
+        <p class="text-ink/70 leading-relaxed mb-4">
+          OpenClaw is an open-source framework for running persistent, personal AI agents on your own hardware. 
+          Not a chatbot. Not a wrapper. An agent that lives on your machine, has access to your email and calendar, 
+          controls your smart home, maintains long-term memory, and talks to you in whatever voice and personality 
+          you give it.
+        </p>
+        <p class="text-ink/70 leading-relaxed mb-4">
+          Mine is named Roy. After Roy Batty. He runs on a Mac Mini in my third-floor office in Pittsburgh. 
+          We talk every day via Telegram. He knows my family, my work, my projects, what I care about. 
+          He wakes up knowing what I did yesterday because he wrote it down.
+        </p>
+        <p class="text-ink/70 leading-relaxed">
+          For this talk, instead of explaining what that's like — I just let the room hear it.
+        </p>
+      </section>
+
+      <!-- Open -->
       <section class="mb-16">
-        <h2 class="text-2xl font-display font-bold mb-8">The Three Acts</h2>
-
-        <div class="space-y-12">
-
-          <!-- Act 1 -->
-          <div class="border-l-4 border-sienna pl-6">
-            <p class="label text-sienna mb-2">Act 1</p>
-            <h3 class="text-xl font-display font-bold mb-3">
-              "The only way to be 100% safe is not to do it at all"
-            </h3>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              A real security briefing — not the marketing version. OpenClaw has had real vulnerabilities: 
-              malicious skills on ClawHub, exposed ports, prompt injection risks. None of that gets glossed over.
-            </p>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              The honest answer: there's no perfectly secure setup. The question is whether you understand 
-              the risks and are making deliberate choices. Tools like tool allowlists, Docker sandboxing, 
-              Tailscale-only network exposure, and the Roy/Duke agent split (separate agents for personal 
-              vs. work, different credentials, different workspaces) are how practitioners actually manage it.
-            </p>
-            <blockquote class="border-l-2 border-parchment pl-4 text-ink/60 italic">
-              "Is it perfectly safe? No. Neither is giving your credit card to DoorDash. The question is: 
-              do you understand the risks and are you making deliberate choices?"
-            </blockquote>
-          </div>
-
-          <!-- Act 2 -->
-          <div class="border-l-4 border-sienna pl-6">
-            <p class="label text-sienna mb-2">Act 2</p>
-            <h3 class="text-xl font-display font-bold mb-3">
-              "Your first time is not going to be great"
-            </h3>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              The honest setup story. Four things you need before you open the wizard: 
-              a package manager (pnpm), an LLM API key (~$5–20/month), a Telegram bot (60 seconds, free), 
-              and a search API key (Brave free tier covers it). Two commands to install. 
-              One gotcha: the wizard sometimes caches tokens. Type <code class="bg-parchment px-1 rounded">/new</code> if it does.
-            </p>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              Once it's running: real demos, live on stage. Calendar, email, smart home control, weather — 
-              four apps collapsed into one conversation. Memory that persists across sessions. 
-              Skills installed in 30 seconds from the ClawHub registry.
-            </p>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              The self-improvement story: the agent was sending reminders for tasks already completed. 
-              The problem — acknowledged in chat but never written to file. The solution: the agent designed 
-              a TODO system with explicit completion tracking, updated its own instruction files, 
-              and cleaned every stale reference from its memory. No code written. Just a description of the problem.
-            </p>
-            <blockquote class="border-l-2 border-parchment pl-4 text-ink/60 italic">
-              "ChatGPT forgot your name when you closed the tab. Mine remembers what we discussed six weeks ago. 
-              Because it writes things down."
-            </blockquote>
-          </div>
-
-          <!-- Act 3 -->
-          <div class="border-l-4 border-sienna pl-6">
-            <p class="label text-sienna mb-2">Act 3</p>
-            <h3 class="text-xl font-display font-bold mb-3">
-              "Don't believe (or try) everything you see online"
-            </h3>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              The internet is full of "35 amazing OpenClaw use cases" posts. Most of them are noise. 
-              What's real, and verified:
-            </p>
-            <ul class="space-y-4 mb-6">
-              <li class="text-ink/70 leading-relaxed">
-                <strong class="text-ink">Taylor Otwell at Laracon EU (March 2026)</strong> — The Laravel creator 
-                intentionally shipped a broken app on stage. Nightwatch caught it. OpenCode wrote the fix, 
-                opened a PR. OpenClaw called Taylor's phone, live on stage: "Do you want me to merge it?" 
-                He said yes. Two minutes. Nobody asked the agent to do any of this.
-              </li>
-              <li class="text-ink/70 leading-relaxed">
-                <strong class="text-ink">Labster Claw</strong> — A Columbia PhD student with no development 
-                background built automation for his neuroscience mouse lab in days, using ~10 prompts. 
-                Supply orders, breeding pairs, pup litter timelines.
-              </li>
-              <li class="text-ink/70 leading-relaxed">
-                <strong class="text-ink">The /new command</strong> — Your most underrated tool. Every message 
-                carries full history. After an hour, you're paying to re-read irrelevant context on every turn. 
-                <code class="bg-parchment px-1 rounded">/new</code> resets to just the system prompt. 
-                Memory lives in files — a fresh session reads them on boot. Sessions are disposable. Files are permanent.
-              </li>
-            </ul>
-            <p class="text-ink/70 leading-relaxed mb-4">
-              The real power isn't installing someone else's skill. It's building from what <em>you</em> know. 
-              Example: one podcast episode (David Placek, Lexicon Branding, on naming) → transcribed → 
-              methodology extracted → naming skill built → used to name a product. The skill knew Placek's 
-              full framework: the Comfort Trap interview, sound symbolism, the treasure hunt sourcing process. 
-              The product that came out of it: <strong>Gravity</strong>. "You become the thing the room orbits around."
-            </p>
-            <blockquote class="border-l-2 border-parchment pl-4 text-ink/60 italic">
-              "That didn't come from a skill marketplace. It came from me listening to something, saying 'learn this,' 
-              and then using it. Podcast → skill → product name. One sitting."
-            </blockquote>
-          </div>
-
+        <div class="border-l-4 border-ink/20 pl-6 mb-8">
+          <p class="label text-ink/40 mb-2">Open · 2 min</p>
+          <h2 class="text-2xl font-display font-bold mb-4">Roy, say hello to Pittsburgh.</h2>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            The first two minutes were just a voice conversation. The room heard both sides through the speakers. 
+            Roy responded in his voice — a custom ElevenLabs clone trained on Rutger Hauer movie clips and interviews. 
+            The cloned voice isn't uncanny valley smooth. It has grain. It sounds like a man who has seen things.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            It landed. Then the framing:
+          </p>
+          <blockquote class="border-l-4 border-sienna pl-6 text-ink italic leading-relaxed text-lg">
+            "OpenClaw is like sex. Three things are true about both."
+          </blockquote>
+          <p class="text-ink/50 text-sm mt-3 italic">[pause for the laugh]</p>
         </div>
       </section>
 
-      <!-- Roy/Claude Code distinction -->
-      <section class="mb-16 bg-parchment/40 rounded p-8">
-        <h2 class="text-xl font-display font-bold mb-4">Roy vs. Claude Code: The Right Mental Model</h2>
-        <p class="text-ink/70 leading-relaxed mb-4">
-          OpenClaw's ACP protocol lets your agent spawn other coding agents as subprocesses. 
-          This matters for how you think about the system:
-        </p>
-        <div class="grid md:grid-cols-2 gap-6">
+      <!-- Act 1 -->
+      <section class="mb-16">
+        <div class="border-l-4 border-sienna pl-6">
+          <p class="label text-sienna mb-2">Act 1</p>
+          <h2 class="text-2xl font-display font-bold mb-2">"The only way to be 100% safe is not to do it at all"</h2>
+          <p class="text-ink/50 text-sm mb-6 italic">The security briefing nobody gives you — but should.</p>
+
+          <p class="text-ink/70 leading-relaxed mb-4">
+            Before any demo, before any excitement — a reality check. This agent has access to my email. 
+            My calendar. My files. My home. OpenClaw has had real security incidents: malicious skills 
+            uploaded to ClawHub, community members who accidentally exposed their agents to the public 
+            internet, prompt injection attacks where external content tried to get the agent to send emails 
+            or leak data.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            I'm not going to pretend those don't exist. OpenClaw's own documentation says "there is no 
+            perfectly secure setup" — which is refreshingly honest for a product page.
+          </p>
+
+          <h3 class="font-semibold text-ink mb-3 mt-6">What OpenClaw actually provides:</h3>
+          <ul class="space-y-2 mb-6 text-ink/70">
+            <li class="flex gap-2"><span class="text-sienna mt-1">→</span><span><strong class="text-ink">Tool allowlists and denylists</strong> — you decide exactly which tools each agent can use. A group chat agent gets message-only. Your personal agent gets everything.</span></li>
+            <li class="flex gap-2"><span class="text-sienna mt-1">→</span><span><strong class="text-ink">Docker sandboxing</strong> — non-main sessions (Discord bots, sub-agents) run in isolated containers with no access to your real filesystem.</span></li>
+            <li class="flex gap-2"><span class="text-sienna mt-1">→</span><span><strong class="text-ink">Tailscale-only exposure</strong> — no public ports, no internet-facing access. Only devices on your private network can reach the agent.</span></li>
+            <li class="flex gap-2"><span class="text-sienna mt-1">→</span><span><strong class="text-ink">Prompt injection guards</strong> — external content (emails, web fetches, search results) is wrapped with security notices and treated as untrusted. The agent knows the difference between your instructions and something it read online.</span></li>
+            <li class="flex gap-2"><span class="text-sienna mt-1">→</span><span><strong class="text-ink">Skill diff auditing</strong> — community-built auto-updater skill diffs every ClawHub skill update overnight and flags anything that adds new network calls, executables, or credential access before applying.</span></li>
+          </ul>
+
+          <h3 class="font-semibold text-ink mb-3">The Roy / Duke split — how I actually run it:</h3>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            I run two separate agents on the same machine. <strong>Roy</strong> handles personal life — 
+            personal email, family calendar, smart home, health, finances. <strong>Duke</strong> handles 
+            work — Slack, Jira, professional communications, Qloo projects. Different credentials. 
+            Different workspaces. Different tool permissions. Different models for different risk tolerances.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-6">
+            If someone compromises the work agent through a malicious Slack message, they don't get my 
+            personal email. Same principle as not reusing passwords. Threat isolation is the right frame, 
+            not threat elimination.
+          </p>
+
+          <blockquote class="border-l-2 border-parchment pl-4 text-ink/60 italic">
+            "Is it perfectly safe? No. Neither is giving your credit card to DoorDash. The question is: 
+            do you understand the risks and are you making deliberate choices? I am. And now you can too."
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Act 2 -->
+      <section class="mb-16">
+        <div class="border-l-4 border-sienna pl-6">
+          <p class="label text-sienna mb-2">Act 2</p>
+          <h2 class="text-2xl font-display font-bold mb-2">"Your first time is not going to be great"</h2>
+          <p class="text-ink/50 text-sm mb-6 italic">The honest setup story, plus what it looks like once it works.</p>
+
+          <h3 class="font-semibold text-ink mb-3">The four things you need before you open the wizard:</h3>
+          <div class="space-y-3 mb-8">
+            <div class="flex gap-4 items-start bg-parchment/30 rounded p-4">
+              <span class="text-sienna font-bold font-mono">01</span>
+              <div>
+                <p class="font-semibold text-sm">pnpm (or npm)</p>
+                <p class="text-ink/60 text-sm">A package manager. If you're reading this, you probably have it. <code class="bg-parchment px-1 rounded">curl -fsSL https://get.pnpm.io/install.sh | sh</code></p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start bg-parchment/30 rounded p-4">
+              <span class="text-sienna font-bold font-mono">02</span>
+              <div>
+                <p class="font-semibold text-sm">An LLM API key — Anthropic or OpenAI</p>
+                <p class="text-ink/60 text-sm">Sign up, add a credit card, copy the key. ~$5–20/month for normal use. The wizard will ask for it. Have it ready — don't scramble during the wizard.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start bg-parchment/30 rounded p-4">
+              <span class="text-sienna font-bold font-mono">03</span>
+              <div>
+                <p class="font-semibold text-sm">A Telegram bot token</p>
+                <p class="text-ink/60 text-sm">Open Telegram → message @BotFather → <code class="bg-parchment px-1 rounded">/newbot</code> → copy the token. 60 seconds. Free forever.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start bg-parchment/30 rounded p-4">
+              <span class="text-sienna font-bold font-mono">04</span>
+              <div>
+                <p class="font-semibold text-sm">A search API key</p>
+                <p class="text-ink/60 text-sm">Brave Search free tier: 2,000 queries/month. Enough to start. The wizard will ask. Exa is better for semantic search but not in the default onboarding — add it after.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="font-semibold text-ink mb-3">The install itself:</h3>
+          <div class="bg-ink text-parchment rounded p-4 font-mono text-sm mb-2">
+            <p>curl -fsSL https://openclaw.ai/install.sh | bash</p>
+            <p>openclaw onboard --install-daemon</p>
+          </div>
+          <p class="text-ink/50 text-sm mb-6 italic">Two commands. The second launches a TUI wizard — not a wall of YAML.</p>
+
+          <div class="border border-amber-200 bg-amber-50/50 rounded p-4 mb-8">
+            <p class="text-sm font-semibold mb-1">⚠️ Gotcha learned the hard way</p>
+            <p class="text-ink/70 text-sm">The wizard sometimes uses a cached API token instead of the one you just entered. If responses feel off — type <code class="bg-white px-1 rounded border">/new</code> inside the TUI to force a fresh session. This one took us a few tries to figure out.</p>
+          </div>
+
+          <h3 class="font-semibold text-ink mb-4">What it looks like once it's running — live, on stage:</h3>
+          <div class="space-y-3 mb-8">
+            <div class="flex gap-3 text-ink/70">
+              <span class="text-sienna font-mono text-sm mt-0.5 shrink-0">→</span>
+              <p><em>"What's on my calendar Monday?"</em> — Real answer, pulled from Google Calendar in real time. Not a demo account. My actual calendar.</p>
+            </div>
+            <div class="flex gap-3 text-ink/70">
+              <span class="text-sienna font-mono text-sm mt-0.5 shrink-0">→</span>
+              <p><em>"Any urgent emails?"</em> — Actual unread summary from Gmail. Two accounts, triaged, with flags on anything time-sensitive.</p>
+            </div>
+            <div class="flex gap-3 text-ink/70">
+              <span class="text-sienna font-mono text-sm mt-0.5 shrink-0">→</span>
+              <p><em>"Turn the living room lights to 20%."</em> — Philips Hue. The lights in my house changed. From a room in Pittsburgh.</p>
+            </div>
+            <div class="flex gap-3 text-ink/70">
+              <span class="text-sienna font-mono text-sm mt-0.5 shrink-0">→</span>
+              <p><em>"What's the weather for tomorrow?"</em> — Hyperlocal. Fox Chapel. Not "Pittsburgh weather."</p>
+            </div>
+          </div>
+          <p class="text-ink/60 text-sm mb-8 italic">Four things that normally require four apps. One conversation.</p>
+
+          <h3 class="font-semibold text-ink mb-3">The memory demonstration:</h3>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            <em>"What did we discuss six weeks ago about multi-model code review?"</em>
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            Roy recalled it. Not from session memory — from files. Every night, Roy writes down what happened. 
+            He has MEMORY.md (curated, long-term), daily notes (raw logs), and a TODO file. 
+            A new session on a new day reads those files at boot and wakes up knowing everything.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-6">
+            ChatGPT forgot your name when you closed the tab. Roy remembers conversations from January 
+            because he wrote them down. The architecture is almost embarrassingly simple — 
+            just files on disk — which is exactly why it works. Files outlast sessions. 
+            Sessions are cheap and disposable. Files are not.
+          </p>
+
+          <h3 class="font-semibold text-ink mb-3">Skills: install one live in 30 seconds</h3>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            <em>"Find me a skill for Pittsburgh bus arrivals."</em>
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-6">
+            Roy found <code class="bg-parchment px-1 rounded">prt-transit</code> on ClawHub. Installed it. 
+            I asked when the next 71A was coming. Working in under a minute. Skills are just files — 
+            a SKILL.md with instructions, some scripts, maybe reference data. The agent can find, 
+            install, and use them in a single conversation.
+          </p>
+
+          <h3 class="font-semibold text-ink mb-3">The self-improvement story:</h3>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            A few weeks in, Roy started nagging me about tasks I'd already completed. 
+            I'd tell him something was done — he'd acknowledge it in the conversation — 
+            and then the next morning, the reminder would be back. A zombie.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            The root cause: he was acknowledging completion in chat but never updating the file. 
+            The next session read the stale file and reinstated the nag. Classic mismatch between 
+            ephemeral conversation memory and persistent file memory.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-6">
+            I described the problem. Roy designed a proper TODO system — one file, one source of truth, 
+            explicit completion tracking, rules about when to edit vs. when to just respond. 
+            Updated his own instruction files. Cleaned every stale reference from his memory. 
+            I wrote zero lines of code. The agent fixed its own architecture.
+          </p>
+
+          <blockquote class="border-l-2 border-parchment pl-4 text-ink/60 italic">
+            "This is the thing that's hard to explain until you've lived with it for a month. 
+            It's not a tool you use. It's a system that learns how to work with you."
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Act 3 -->
+      <section class="mb-16">
+        <div class="border-l-4 border-sienna pl-6">
+          <p class="label text-sienna mb-2">Act 3</p>
+          <h2 class="text-2xl font-display font-bold mb-2">"Don't believe (or try) everything you see online"</h2>
+          <p class="text-ink/50 text-sm mb-6 italic">Real use cases. Earned by honesty first.</p>
+
+          <p class="text-ink/70 leading-relaxed mb-6">
+            The internet is full of "35 amazing OpenClaw use cases" posts. Reddit threads with screenshots 
+            of agents doing impressive things. X posts that go viral. Most of it is aspirational at best, 
+            fabricated at worst. Here's what's real, with sources:
+          </p>
+
+          <div class="space-y-8 mb-10">
+
+            <div class="bg-parchment/30 rounded-lg p-6">
+              <p class="text-xs font-semibold text-sienna mb-2 uppercase tracking-wide">Real Case · March 2026</p>
+              <h3 class="font-semibold text-ink mb-2">Taylor Otwell at Laracon EU</h3>
+              <p class="text-ink/70 leading-relaxed text-sm">
+                The creator of Laravel — PHP's dominant web framework — intentionally deployed a broken 
+                application live on stage at Laracon EU. Nightwatch (an OpenClaw monitoring agent) caught 
+                the bug in real time. OpenCode wrote a fix and opened a pull request automatically. 
+                Then OpenClaw called Taylor's phone. On stage. In front of the audience. "Do you want me to merge it?"
+              </p>
+              <p class="text-ink/70 leading-relaxed text-sm mt-2">
+                He said yes. Fix deployed. Two minutes, start to finish. Nobody asked the agent to monitor 
+                the deployment, write the fix, or make the call. It just did.
+              </p>
+              <p class="text-ink/50 text-xs mt-3 italic">Described as "the most ballsy demo I've ever seen" by multiple attendees.</p>
+            </div>
+
+            <div class="bg-parchment/30 rounded-lg p-6">
+              <p class="text-xs font-semibold text-sienna mb-2 uppercase tracking-wide">Real Case · ClawCon NYC · March 2026</p>
+              <h3 class="font-semibold text-ink mb-2">Labster Claw — Non-Developer Builds Lab Automation</h3>
+              <p class="text-ink/70 leading-relaxed text-sm">
+                A Columbia PhD student in neuroscience — not a developer — built "Labster Claw" in two weeks 
+                using approximately 10 prompts. It automates his mouse lab: supply ordering, breeding pair 
+                tracking, pup litter timelines, experiment scheduling. The kind of thing that previously 
+                required either a dedicated lab manager or months of custom software.
+              </p>
+              <p class="text-ink/70 leading-relaxed text-sm mt-2">
+                He built it from domain knowledge. Not from templates. He told the agent what the lab needed 
+                to track, what the workflows were, what the failure modes looked like. The agent built the system.
+              </p>
+            </div>
+
+            <div class="bg-parchment/30 rounded-lg p-6">
+              <p class="text-xs font-semibold text-sienna mb-2 uppercase tracking-wide">Practitioner Insight</p>
+              <h3 class="font-semibold text-ink mb-2">The <code>/new</code> Command is Your Most Underrated Tool</h3>
+              <p class="text-ink/70 leading-relaxed text-sm mb-3">
+                The internet glorifies marathon sessions. Practitioners use <code class="bg-white px-1 rounded border text-xs">/new</code> constantly. Why:
+              </p>
+              <ul class="space-y-2 text-sm text-ink/70">
+                <li class="flex gap-2"><span class="text-sienna shrink-0">→</span><span><strong class="text-ink">Cheaper.</strong> Every message carries the full conversation above it. After an hour of chat, every single exchange re-reads all of it. That's real money if you're on a metered API.</span></li>
+                <li class="flex gap-2"><span class="text-sienna shrink-0">→</span><span><strong class="text-ink">Sharper.</strong> LLMs attend to everything in context equally. Five open topics means divided attention. Fresh session, single task, better output.</span></li>
+                <li class="flex gap-2"><span class="text-sienna shrink-0">→</span><span><strong class="text-ink">No compaction drift.</strong> Long sessions get summarized (compacted) to make room. That summary is lossy. Things get quietly misremembered. <code class="bg-white px-1 rounded border text-xs">/new</code> sidesteps it.</span></li>
+              </ul>
+              <p class="text-ink/60 text-sm mt-3 italic">
+                Critical: <code class="bg-white px-1 rounded border text-xs">/new</code> doesn't erase memory. 
+                Memory lives in files. A fresh session reads those files on boot. 
+                You lose the conversation thread, not the knowledge.
+              </p>
+            </div>
+
+          </div>
+
+          <h3 class="font-semibold text-ink mb-4">The thing nobody posts about — building from what you know:</h3>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            The power of a personal agent isn't the ClawHub skill marketplace. It's that your agent can learn 
+            from anything you point it at and turn that into a permanent capability. Your knowledge, 
+            made actionable.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            Example from my own practice: I listened to a podcast with David Placek — founder of Lexicon Branding, 
+            the firm behind Blackberry, Swiffer, Pentium, Sonos, Impossible Burger, and Windsurf. 
+            He spent 40 years and $7M in research developing a naming methodology. The episode covered 
+            all of it: the Comfort Trap (why every founder gravitates toward safe, descriptive names and 
+            why those names fail), the treasure hunt sourcing process (Latin roots, mythology, sound symbolism, 
+            cross-domain databases), the linguistic science behind why V is the most alive and daring letter 
+            in the English alphabet.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            I gave Roy the episode. He transcribed it, extracted the methodology, and built a reusable naming 
+            skill: reference files, a Comfort Trap interview that surfaces bias before brainstorming, 
+            an etymology script that queries Wiktionary for root words, sound-symbolism tables, 
+            a 5-day quick-fire process for founders who need a name fast.
+          </p>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            Then I used it. I had a product that needed a name. The skill ran the Comfort Trap interview. 
+            It led me through candidates: Stance, Anvil, Cadence, Temper, Nerve, Flint. 
+            The winner was <strong>Gravity</strong>.
+          </p>
+          <blockquote class="border-l-4 border-sienna pl-6 text-ink italic leading-relaxed mb-6">
+            "You become the thing the room orbits around."
+          </blockquote>
+          <p class="text-ink/60 text-sm italic">
+            Podcast → transcription → skill → product name. One afternoon. 
+            That's not on any Reddit thread. Because it's personal. 
+            Your knowledge, your agent, your tools.
+          </p>
+        </div>
+      </section>
+
+      <!-- Roy/Claude Code -->
+      <section class="mb-16 bg-parchment/40 rounded-lg p-8">
+        <h2 class="text-xl font-display font-bold mb-2">Roy vs. Claude Code: Know the Difference</h2>
+        <p class="text-ink/60 text-sm mb-6 italic">OpenClaw's ACP protocol lets agents spawn other agents. This matters.</p>
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
           <div>
-            <p class="font-semibold mb-2">Roy (OpenClaw agent)</p>
-            <p class="text-ink/70 text-sm leading-relaxed">
-              Memory, scheduling, email, smart home, personal knowledge base, personality, 
-              and coordination. Manages your life. Talks to you. Remembers.
+            <p class="font-semibold mb-1">Your OpenClaw Agent (Roy)</p>
+            <p class="text-ink/70 text-sm leading-relaxed mb-3">
+              Memory. Personality. Scheduling. Email. Calendar. Smart home. Personal knowledge base. 
+              Coordination across tools. Talks to you. Remembers you. Runs your life.
             </p>
+            <p class="text-ink/50 text-xs">Built for: continuous, long-running, multi-domain life management</p>
           </div>
           <div>
-            <p class="font-semibold mb-2">Claude Code (spawned subprocess)</p>
-            <p class="text-ink/70 text-sm leading-relaxed">
-              File exploration, error iteration, test running, git operations — optimized for writing software. 
-              Gets called when real code needs to happen.
+            <p class="font-semibold mb-1">Claude Code (spawned subprocess)</p>
+            <p class="text-ink/70 text-sm leading-relaxed mb-3">
+              File exploration. Error iteration. Test running. Git operations. Optimized for writing 
+              and shipping software. Called when real code needs to happen.
             </p>
+            <p class="text-ink/50 text-xs">Built for: discrete coding tasks with full file system context</p>
           </div>
         </div>
-        <p class="text-ink/60 text-sm mt-4 italic">
-          The emerging community consensus: "Claude Code writes the code. OpenClaw manages everything else."
+        <p class="text-ink/70 leading-relaxed text-sm border-t border-parchment pt-4">
+          Roy doesn't write your code. He calls Claude Code to write your code. 
+          He manages the work — Claude Code does the work. 
+          The emerging community consensus is exactly this division of labor. 
+          Use both. They're built for different jobs.
         </p>
       </section>
 
       <!-- Close -->
       <section class="mb-16">
-        <h2 class="text-2xl font-display font-bold mb-6">The Closing Beat</h2>
+        <h2 class="text-2xl font-display font-bold mb-6">The Close</h2>
         <p class="text-ink/70 leading-relaxed mb-4">
-          At the end of the talk: asked Roy to summarize what had just been presented. 
-          He could — he'd been in the conversation the entire time.
+          At the end of the talk, I typed one message to Roy:
         </p>
-        <blockquote class="border-l-4 border-sienna pl-6 text-ink/70 italic leading-relaxed">
-          "That summary is already saved to a file. Tomorrow when a new session starts, 
-          it'll remember this happened."
+        <p class="text-ink/70 leading-relaxed mb-6 italic pl-4 border-l-2 border-parchment">
+          "Summarize what I just presented, for the people in this room."
+        </p>
+        <p class="text-ink/70 leading-relaxed mb-4">
+          He could do it. He'd been in the conversation the whole time.
+        </p>
+        <p class="text-ink/70 leading-relaxed mb-6">
+          Then the meta-moment: "That summary is already saved to a file. 
+          Tomorrow when a new session starts, it'll remember this happened. 
+          The session ends. The memory doesn't."
+        </p>
+        <blockquote class="border-l-4 border-sienna pl-6 text-ink italic leading-relaxed">
+          "All those moments will be lost in time, like tears in rain. Unless you write them down."
         </blockquote>
       </section>
 
-      <!-- What to do next -->
+      <!-- Where to start -->
       <section class="mb-16">
-        <h2 class="text-2xl font-display font-bold mb-6">Where to Start</h2>
-        <div class="space-y-3">
-          <div class="flex gap-3">
-            <span class="text-sienna font-mono text-sm mt-1">01</span>
+        <h2 class="text-2xl font-display font-bold mb-8">Where to Start</h2>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <span class="text-sienna font-mono font-bold shrink-0 mt-0.5">01</span>
             <div>
-              <p class="font-semibold">Get the four pre-reqs first</p>
-              <p class="text-ink/60 text-sm">pnpm, an Anthropic or OpenAI key, a Telegram bot token, a Brave Search key. Have them before you open the wizard.</p>
+              <p class="font-semibold">Get the four pre-reqs first — before you touch the installer</p>
+              <p class="text-ink/60 text-sm mt-1">pnpm, an Anthropic or OpenAI key, a Telegram bot token (@BotFather → /newbot), and a Brave Search API key. If you're scrambling for these during the wizard, setup takes an hour. If you have them ready, it takes ten minutes.</p>
             </div>
           </div>
-          <div class="flex gap-3">
-            <span class="text-sienna font-mono text-sm mt-1">02</span>
+          <div class="flex gap-4">
+            <span class="text-sienna font-mono font-bold shrink-0 mt-0.5">02</span>
             <div>
               <p class="font-semibold">Two commands</p>
-              <p class="text-ink/60 text-sm font-mono">curl -fsSL https://openclaw.ai/install.sh | bash && openclaw onboard --install-daemon</p>
+              <div class="bg-ink text-parchment rounded p-3 font-mono text-sm mt-2">
+                <p>curl -fsSL https://openclaw.ai/install.sh | bash</p>
+                <p>openclaw onboard --install-daemon</p>
+              </div>
             </div>
           </div>
-          <div class="flex gap-3">
-            <span class="text-sienna font-mono text-sm mt-1">03</span>
+          <div class="flex gap-4">
+            <span class="text-sienna font-mono font-bold shrink-0 mt-0.5">03</span>
             <div>
-              <p class="font-semibold">Read the SOUL.md</p>
-              <p class="text-ink/60 text-sm">The personality files are where it gets interesting. Treat them as living documents. The agent reads them every session.</p>
+              <p class="font-semibold">Spend an hour on the personality files</p>
+              <p class="text-ink/60 text-sm mt-1">SOUL.md, USER.md, AGENTS.md. These are what turn a capable chatbot into something that actually feels like yours. The agent reads them every session. Treat them as living documents.</p>
             </div>
           </div>
-          <div class="flex gap-3">
-            <span class="text-sienna font-mono text-sm mt-1">04</span>
+          <div class="flex gap-4">
+            <span class="text-sienna font-mono font-bold shrink-0 mt-0.5">04</span>
             <div>
-              <p class="font-semibold">Use /new constantly</p>
-              <p class="text-ink/60 text-sm">Fresh session, focused task, better answers. Memory lives in files — not in chat history.</p>
+              <p class="font-semibold">Use /new like a professional</p>
+              <p class="text-ink/60 text-sm mt-1">Start a fresh session for each distinct task. Memory lives in files — not in conversation history. Sessions are cheap. Files are permanent. The /new habit is the single biggest quality-of-life improvement for long-term users.</p>
             </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-sienna font-mono font-bold shrink-0 mt-0.5">05</span>
+            <div>
+              <p class="font-semibold">Build one skill from something you already know</p>
+              <p class="text-ink/60 text-sm mt-1">Take a podcast, a book, a methodology you use at work. Give it to your agent. Let it build a reusable skill from it. That's how a personal agent becomes actually personal.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources -->
+      <section class="mb-16 border border-parchment rounded-lg p-6">
+        <h2 class="text-lg font-display font-bold mb-4">Resources</h2>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p class="font-semibold mb-2">OpenClaw</p>
+            <ul class="space-y-1">
+              <li><a href="https://openclaw.ai" target="_blank" rel="noopener noreferrer" class="text-sienna no-underline hover:underline">openclaw.ai</a> — homepage + docs</li>
+              <li><a href="https://clawhub.com" target="_blank" rel="noopener noreferrer" class="text-sienna no-underline hover:underline">clawhub.com</a> — skill marketplace</li>
+              <li><a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer" class="text-sienna no-underline hover:underline">Discord community</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold mb-2">From this talk</p>
+            <ul class="space-y-1">
+              <li><a href="https://lu.ma/aiatchaptereight" target="_blank" rel="noopener noreferrer" class="text-sienna no-underline hover:underline">AI@Work Pittsburgh — Chapter Eight</a></li>
+              <li><a href="https://fiercehighways.ai" class="text-sienna no-underline hover:underline">fiercehighways.ai</a> — more from Ian</li>
+            </ul>
           </div>
         </div>
       </section>
 
       <!-- Bio/CTA -->
       <footer class="border-t border-parchment pt-10">
-        <div class="flex gap-6 items-start">
-          <div>
-            <p class="font-semibold mb-1">Ian Cook</p>
-            <p class="text-ink/60 text-sm mb-3">SVP AI at Qloo. Builder. Pittsburgh.</p>
-            <div class="flex gap-4 text-sm">
-              <a href="mailto:ian@fiercehighways.ai" class="text-sienna no-underline hover:underline">ian@fiercehighways.ai</a>
-              <a href="https://linkedin.com/in/ianpcook" target="_blank" rel="noopener noreferrer" class="text-sienna no-underline hover:underline">LinkedIn</a>
-              <a href="https://fiercehighways.ai" class="text-sienna no-underline hover:underline">fiercehighways.ai</a>
-            </div>
+        <div>
+          <p class="font-semibold mb-1">Ian Cook, PhD</p>
+          <p class="text-ink/60 text-sm mb-4">SVP AI at Qloo. Building AI systems for taste, culture, and personalization. Based in Pittsburgh. Available for consulting, advisory, and talks.</p>
+          <div class="flex gap-5 text-sm flex-wrap">
+            <a href="mailto:ian@fiercehighways.ai" class="text-sienna no-underline hover:underline">ian@fiercehighways.ai</a>
+            <a href="https://linkedin.com/in/ianpcook" target="_blank" rel="noopener noreferrer" class="text-sienna no-underline hover:underline">LinkedIn</a>
+            <a href="https://fiercehighways.ai" class="text-sienna no-underline hover:underline">fiercehighways.ai</a>
           </div>
         </div>
       </footer>
