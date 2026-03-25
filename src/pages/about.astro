@@ -42,14 +42,22 @@ const careerHistory = [
 
 const publications = [
   {
-    title: 'Unexpected Philosophers: Coders of Tomorrow Need Plato As Much As Python',
-    venue: 'LinkedIn',
-    date: 'September 2024',
+    title: 'Competing Gridlock Models and Status Quo Policies',
+    venue: 'Political Analysis (with J. Woon)',
+    date: '2015',
+    citations: 33,
   },
   {
-    title: 'How to Choose an AI Vendor (Who Can Actually Deliver)',
-    venue: 'LinkedIn',
-    date: 'September 2024',
+    title: 'Security Decision Support Challenges in Data Collection and Use',
+    venue: 'IEEE Security & Privacy (with S. Pfleeger)',
+    date: '2010',
+    citations: 24,
+  },
+  {
+    title: 'Partisan Presidential Influence over US Federal Budgetary Outcomes',
+    venue: 'Political Science Research and Methods (with G. Krause)',
+    date: '2014',
+    citations: 9,
   },
 ];
 ---
@@ -166,13 +174,22 @@ const publications = [
       <h2 class="text-2xl font-display font-bold mb-8">Selected Publications</h2>
 
       <div class="space-y-6">
-        {publications.map(({ title, venue, date }) => (
+        {publications.map(({ title, venue, date, citations }) => (
           <div class="pb-6 border-b border-parchment last:border-0">
             <h3 class="font-display font-bold mb-1">{title}</h3>
-            <p class="text-sm text-stone">{venue} &middot; {date}</p>
+            <p class="text-sm text-stone">{venue} &middot; {date}{citations ? ` · ${citations} citations` : ''}</p>
           </div>
         ))}
       </div>
+
+      <a
+        href="https://scholar.google.com/citations?user=rMlXGd4AAAAJ&hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block mt-6 text-sienna text-sm no-underline hover:underline"
+      >
+        View all publications on Google Scholar →
+      </a>
     </div>
   </section>
 
