@@ -5,6 +5,12 @@ type: "talk"
 publishedDate: 2026-03-19
 venue: "AI@Work Pittsburgh — Chapter Eight"
 featured: true
+externalUrl: "https://fiercehighways.ai/talks/openclaw"
+links:
+  - platform: "Write-up"
+    url: "https://fiercehighways.ai/talks/openclaw"
+  - platform: "Event"
+    url: "https://lu.ma/aiatchaptereight"
 ---
 
 I gave a live demo at AI@Work Pittsburgh's Chapter Eight meetup — no slides, just a real conversation with Roy, my personal AI agent, projected on screen while the audience watched.
