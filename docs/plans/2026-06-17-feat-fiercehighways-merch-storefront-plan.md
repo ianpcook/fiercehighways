@@ -28,10 +28,15 @@ Footgun was marked live on 2026-06-24:
 - Public Quick Store URL: `https://fiercehighways.printful.me/product/snapback-hat`
 - Product status in `src/data/merch-curation.ts`: `live`
 
+Quick Store follow-up on 2026-06-24:
+
+- Printful Quick Store URL: `https://fiercehighways.printful.me/`
+- Quick Store dashboard path identifies store `18316924`, but the Printful API returns `403: Quick stores cannot use the API` for that store.
+- The storefront now combines one API-synced product with three manually curated Quick Store products, all linking to the Quick Store root for checkout.
+
 Still needed before the full capsule is purchasable:
 
-- Create and publish Printful products for the other planned hats
-- Add the public Quick Store/product URL for each new live product in `src/data/merch-curation.ts`
+- Replace the Quick Store root links with product-specific Quick Store URLs if Printful exposes stable public URLs for each product.
 
 ## Current Repo Context
 

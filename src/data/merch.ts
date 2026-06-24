@@ -1,5 +1,5 @@
 import printfulProducts from "./printful-products.generated.json";
-import { merchCurationByPrintfulId } from "./merch-curation";
+import { merchCurationByPrintfulId, quickStoreMerchProducts } from "./merch-curation";
 
 export interface MerchProduct {
   slug: string;
@@ -41,7 +41,7 @@ function fallbackSlug(name: string, id: number): string {
   return slug || `printful-${id}`;
 }
 
-export const merchProducts: MerchProduct[] = printfulProducts.products.map((product) => {
+const syncedMerchProducts: MerchProduct[] = printfulProducts.products.map((product) => {
   const curation = merchCurationByPrintfulId[product.id];
   const name = curation?.displayName ?? product.name;
 
@@ -54,13 +54,30 @@ export const merchProducts: MerchProduct[] = printfulProducts.products.map((prod
       "A Fierce Highways field marker synced from Printful and waiting for a sharper description.",
     productType: curation?.productType ?? product.variants[0]?.catalogProductName ?? "Printful product",
     price: curation?.price ?? formatPrice(product),
-    image: product.imageUrl ?? product.thumbnailUrl,
-    imageAlt: `${name} product image`,
+    image: curation?.image ?? product.imageUrl ?? product.thumbnailUrl,
+    imageAlt: curation?.imageAlt ?? `${name} product image`,
     printfulUrl: curation?.printfulUrl,
     status: curation?.status ?? "coming-soon",
-    colors: product.colors ?? [],
+    colors: curation?.colors ?? product.colors ?? [],
     printfulId: product.id,
   };
 });
+
+const supplementalMerchProducts: MerchProduct[] = quickStoreMerchProducts.map((product, index) => ({
+  slug: product.slug,
+  name: product.displayName,
+  kicker: product.kicker,
+  description: product.description,
+  productType: product.productType ?? "Printful product",
+  price: product.price,
+  image: product.image ?? "/images/backgrounds/winding-road.jpg",
+  imageAlt: product.imageAlt ?? `${product.displayName} product image`,
+  printfulUrl: product.printfulUrl,
+  status: product.status ?? "live",
+  colors: product.colors ?? [],
+  printfulId: -(index + 1),
+}));
+
+export const merchProducts: MerchProduct[] = [...syncedMerchProducts, ...supplementalMerchProducts];
 
 export const merchSyncedAt = printfulProducts.syncedAt;
