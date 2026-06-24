@@ -4,6 +4,7 @@ const pathname = Astro.url.pathname;
 const navItems = [
   { href: '/work', label: 'Work' },
   { href: '/media', label: 'Media' },
+  { href: '/store', label: 'Store' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -13,7 +14,7 @@ const isActive = (href: string): boolean =>
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <nav class="container-wide flex items-center justify-between py-5">
+  <nav class="container-wide flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-5">
     <a
       href="/"
       class="header-logo font-display text-2xl font-bold no-underline transition-colors"
@@ -22,13 +23,13 @@ const isActive = (href: string): boolean =>
       <span class="text-sienna">Highways</span>
     </a>
 
-    <ul class="flex gap-10">
+    <ul class="w-full flex flex-wrap justify-center gap-x-3 gap-y-2 md:w-auto md:gap-10">
       {navItems.map(({ href, label }) => (
         <li>
           <a
             href={href}
             class:list={[
-              'nav-item text-sm font-medium tracking-wider uppercase no-underline transition-all duration-300 relative',
+              'nav-item text-[0.68rem] md:text-sm font-medium uppercase no-underline transition-all duration-300 relative',
               isActive(href) ? 'active' : '',
             ]}
           >
@@ -41,7 +42,7 @@ const isActive = (href: string): boolean =>
 </header>
 
 <!-- Spacer for fixed header -->
-<div class="h-16"></div>
+<div class="h-28 md:h-16"></div>
 
 <style is:global>
   /* Always show solid background - simpler and more reliable */

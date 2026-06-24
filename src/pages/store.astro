@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { merchProducts, merchSyncedAt } from '../data/merch';
+
+const syncedDate = new Date(merchSyncedAt);
+const formattedSyncedDate = Number.isNaN(syncedDate.valueOf())
+  ? null
+  : syncedDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+---
+
+<BaseLayout
+  title="Store | Fierce Highways"
+  description="Field gear for agent builders, tool callers, and anyone who has ever read the logs after the damage was done."
+>
+  <section class="relative min-h-[68vh] flex items-center overflow-hidden grain-overlay">
+    <div class="absolute inset-0">
+      <img
+        src="/images/backgrounds/winding-road.jpg"
+        alt="Winding mountain road"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/82 to-ink/48"></div>
+    </div>
+
+    <div class="relative container-wide py-24 z-10">
+      <div class="max-w-4xl">
+        <p class="label text-sienna mb-4">Field Gear</p>
+        <h1 class="store-hero-title font-display font-bold text-cream mb-8 text-shadow-dramatic">
+          Hats for the work that wounds you.
+        </h1>
+        <p class="store-hero-copy text-cream/80 leading-relaxed mb-10">
+          Outdoor-patch trucker hats for agent builders, tool callers, and anyone who has ever read the logs after the damage was done.
+        </p>
+        <a
+          href="#products"
+          class="btn-fierce inline-block px-8 py-4 bg-sienna text-cream font-medium uppercase no-underline focus-ring"
+        >
+          View the Gear
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section-spacing">
+    <div class="container-wide">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div>
+          <p class="label text-sienna mb-4">Synced From Printful</p>
+          <h2 class="text-3xl md:text-5xl font-display font-bold mb-4 road-line">
+            Small monuments to bad decisions.
+          </h2>
+          <p class="type-lead store-section-copy">
+            Printful supplies the inventory facts. Fierce Highways supplies the indictment.
+          </p>
+        </div>
+
+        {formattedSyncedDate && (
+          <p class="text-stone text-sm md:text-right">
+            Last inventory sync<br />
+            <span class="text-ink-light">{formattedSyncedDate}</span>
+          </p>
+        )}
+      </div>
+
+      {merchProducts.length > 0 ? (
+        <div
+          class:list={[
+            'grid gap-8',
+            merchProducts.length === 1 ? 'max-w-4xl mx-auto' : 'lg:grid-cols-2',
+          ]}
+        >
+          {merchProducts.map((product, index) => (
+            <article class="card-bold border border-parchment bg-paper overflow-hidden">
+              <div class="grid md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] min-h-full">
+                <div class="bg-cream-dark border-b md:border-b-0 md:border-r border-parchment p-6 flex items-center justify-center">
+                  <div class="w-full aspect-square bg-cream border border-parchment overflow-hidden flex items-center justify-center">
+                    <img
+                      src={product.image}
+                      alt={product.imageAlt}
+                      class="w-full h-full object-cover"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                    />
+                  </div>
+                </div>
+
+                <div class="p-8 flex flex-col">
+                  <div class="mb-6">
+                    <p class="label text-sienna mb-3">{product.productType}</p>
+                    <h3 class="text-3xl font-display font-bold mb-4">{product.name}</h3>
+                    <p class="text-xl font-display text-ink mb-4">{product.kicker}</p>
+                    <p class="text-ink-light leading-relaxed">{product.description}</p>
+                  </div>
+
+                  <div class="mt-auto">
+                    <div class="flex flex-wrap gap-2 mb-6" aria-label={`${product.name} colors`}>
+                      {product.colors.map((color) => (
+                        <span class="text-xs px-2 py-1 bg-cream-dark text-stone border border-parchment">
+                          {color}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-parchment">
+                      <div>
+                        {product.price && (
+                          <p class="text-2xl font-display font-bold text-ink">{product.price}</p>
+                        )}
+                        <p class="text-sm text-stone">
+                          {product.status === 'live' ? 'Checkout by Printful' : 'Checkout link pending'}
+                        </p>
+                      </div>
+
+                      {product.status === 'live' && product.printfulUrl ? (
+                        <a
+                          href={product.printfulUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="btn-fierce inline-block px-6 py-3 bg-sienna text-cream font-medium uppercase no-underline text-center whitespace-nowrap focus-ring"
+                        >
+                          Buy on Printful
+                        </a>
+                      ) : (
+                        <span class="inline-block px-6 py-3 bg-cream-dark text-stone border border-parchment font-medium uppercase text-center">
+                          Coming Soon
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="border border-parchment bg-paper p-10">
+          <h3 class="text-2xl font-display font-bold mb-3">No products synced yet.</h3>
+          <p class="text-ink-light">
+            Run the Printful sync script, then rebuild the site when the first products are ready.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section-spacing bg-cream-dark highway-stripes">
+    <div class="container-editorial">
+      <p class="label text-sienna mb-4">The Fine Print</p>
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">
+        These are not startup hats.
+      </h2>
+      <p class="type-lead">
+        They are small field markers for the recurring indignities of making machines do things. Product data is synced from Printful at build time; checkout and fulfillment happen there when a product is live.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .store-hero-title {
+    font-size: 2.75rem;
+    line-height: 1.08;
+    max-width: 20rem;
+  }
+
+  .store-hero-copy,
+  .store-section-copy {
+    max-width: 20rem;
+  }
+
+  .store-hero-copy {
+    font-size: 1.125rem;
+  }
+
+  @media (min-width: 768px) {
+    .store-hero-title {
+      font-size: 4.75rem;
+      max-width: 56rem;
+    }
+
+    .store-hero-copy,
+    .store-section-copy {
+      max-width: 42rem;
+    }
+
+    .store-hero-copy {
+      font-size: 2rem;
+    }
+  }
+</style>

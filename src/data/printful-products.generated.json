@@ -1,0 +1,182 @@
+{
+  "source": "printful-api-v1",
+  "storeId": 17344061,
+  "syncedAt": "2026-06-24T15:59:08.940Z",
+  "products": [
+    {
+      "id": 439929909,
+      "externalId": "footgun-richardson-112-1781634126",
+      "name": "footgun Richardson 112 Trucker Hat",
+      "syncedVariantCount": 7,
+      "variantCount": 7,
+      "thumbnailUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v8-toe-ball-bullet-hole-6.3x2.56.png",
+      "imageUrl": "https://files.cdn.printful.com/files/85d/85d0df430dd4ad87e3a8a9e97ab1a60e_preview.png",
+      "isIgnored": false,
+      "price": {
+        "min": "32.00",
+        "max": "32.00",
+        "currency": "USD"
+      },
+      "colors": [
+        "Black / Charcoal",
+        "Black / White",
+        "Black",
+        "Charcoal/Black",
+        "Heather Grey / Black",
+        "Heather Grey/White",
+        "Loden"
+      ],
+      "variants": [
+        {
+          "id": 5357032626,
+          "externalId": "footgun-richardson-112-1781634126-16711",
+          "sku": "FOOTGUN-112-BLACK-CHARCOAL",
+          "name": "footgun Richardson 112 Trucker Hat / Black / Charcoal / One size",
+          "color": "Black / Charcoal",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 16711,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Black / Charcoal)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/16711_1680092646.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/85d/85d0df430dd4ad87e3a8a9e97ab1a60e_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        },
+        {
+          "id": 5357032627,
+          "externalId": "footgun-richardson-112-1781634126-11420",
+          "sku": "FOOTGUN-112-BLACK-WHITE",
+          "name": "footgun Richardson 112 Trucker Hat / Black / White / One size",
+          "color": "Black / White",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 11420,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Black / White)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/11420_1587535530.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/f23/f233cfd9083f7eecce6aad09489d5412_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        },
+        {
+          "id": 5357032628,
+          "externalId": "footgun-richardson-112-1781634126-11417",
+          "sku": "FOOTGUN-112-BLACK",
+          "name": "footgun Richardson 112 Trucker Hat / Black / One size",
+          "color": "Black",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 11417,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Black)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/11417_1587535533.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/b77/b7712cc44c05948166c33a8c7d9c7e4f_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        },
+        {
+          "id": 5357032629,
+          "externalId": "footgun-richardson-112-1781634126-16713",
+          "sku": "FOOTGUN-112-CHARCOAL-BLACK",
+          "name": "footgun Richardson 112 Trucker Hat / Charcoal/Black / One size",
+          "color": "Charcoal/Black",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 16713,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Charcoal/Black)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/16713_1680001492.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/990/9906fe0292559238a8a5a7a31c64e727_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        },
+        {
+          "id": 5357032631,
+          "externalId": "footgun-richardson-112-1781634126-11421",
+          "sku": "FOOTGUN-112-HEATHER-GREY-BLACK",
+          "name": "footgun Richardson 112 Trucker Hat / Heather Grey / Black / One size",
+          "color": "Heather Grey / Black",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 11421,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Heather Grey / Black)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/11421_1587535531.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/01b/01be8926cda79fa640f8b672c082cae5_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        },
+        {
+          "id": 5357032633,
+          "externalId": "footgun-richardson-112-1781634126-16712",
+          "sku": "FOOTGUN-112-HEATHER-GREY-WHITE",
+          "name": "footgun Richardson 112 Trucker Hat / Heather Grey/White / One size",
+          "color": "Heather Grey/White",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 16712,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Heather Grey/White)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/16712_1680001494.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/eac/eaca88266e6da5cd0a8d9022c3fd4162_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        },
+        {
+          "id": 5357032634,
+          "externalId": "footgun-richardson-112-1781634126-11418",
+          "sku": "FOOTGUN-112-LODEN",
+          "name": "footgun Richardson 112 Trucker Hat / Loden / One size",
+          "color": "Loden",
+          "size": "One size",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "availabilityStatus": "active",
+          "catalogVariantId": 11418,
+          "catalogProductId": 422,
+          "catalogProductName": "Richardson Snapback Trucker Cap 112 (Loden)",
+          "catalogProductImage": "https://files.cdn.printful.com/products/422/11418_1587535534.jpg",
+          "previewImageUrl": "https://files.cdn.printful.com/files/ed1/ed1f10105890fc660f71769e794dc129_preview.png",
+          "printFileUrl": "https://raw.githubusercontent.com/ianpcook/skills-nat/main/public/printful/footgun-v11-closed-border-6.3x2.56-transparent.png",
+          "printFileName": "footgun-v11-closed-border-6.3x2.56-transparent.png"
+        }
+      ],
+      "previewImages": [
+        {
+          "url": "https://files.cdn.printful.com/files/85d/85d0df430dd4ad87e3a8a9e97ab1a60e_preview.png"
+        },
+        {
+          "url": "https://files.cdn.printful.com/files/f23/f233cfd9083f7eecce6aad09489d5412_preview.png"
+        },
+        {
+          "url": "https://files.cdn.printful.com/files/b77/b7712cc44c05948166c33a8c7d9c7e4f_preview.png"
+        },
+        {
+          "url": "https://files.cdn.printful.com/files/990/9906fe0292559238a8a5a7a31c64e727_preview.png"
+        },
+        {
+          "url": "https://files.cdn.printful.com/files/01b/01be8926cda79fa640f8b672c082cae5_preview.png"
+        },
+        {
+          "url": "https://files.cdn.printful.com/files/eac/eaca88266e6da5cd0a8d9022c3fd4162_preview.png"
+        },
+        {
+          "url": "https://files.cdn.printful.com/files/ed1/ed1f10105890fc660f71769e794dc129_preview.png"
+        }
+      ]
+    }
+  ]
+}

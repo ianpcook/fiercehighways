@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "sync:printful-products": "node scripts/sync-printful-products.mjs",
+    "build:with-printful": "npm run sync:printful-products && astro build",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
