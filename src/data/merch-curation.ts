@@ -57,18 +57,4 @@ export const quickStoreMerchProducts: MerchCuration[] = [
     printfulUrl: quickStoreUrl,
     status: "live",
   },
-  {
-    slug: "rate-limit-ridge",
-    displayName: "Rate Limit Ridge",
-    kicker: "The mountain said no.",
-    description:
-      "For anyone who has watched a beautiful plan die against a 429 and started hiking anyway.",
-    productType: "Trucker Hat",
-    price: "$32.00",
-    image: "/images/store/rate-limit-ridge.png",
-    imageAlt: "Rate Limit Ridge patch design",
-    colors: ["Quick Store"],
-    printfulUrl: quickStoreUrl,
-    status: "live",
-  },
 ];

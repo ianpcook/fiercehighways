@@ -66,7 +66,6 @@ Initial products:
 - `footgun`
 - `Wants to run AskUserQuestion`
 - `You're right to push back`
-- `Rate Limit Ridge`
 
 Each product card should include:
 
@@ -193,7 +192,6 @@ Use product images from the existing Printful hat work:
 - `footgun`: current preferred Quick Store asset is `footgun-v11-closed-border-wants-to-run-footprint-transparent.png`
 - `wants-to-run-askuserquestion`: use the selected Arches/rectangle transparent asset
 - `youre-right-to-push-back`: use the 12-color transparent rectangle asset
-- `rate-limit-ridge`: use the production crop if no Printful-ready transparent version exists yet
 
 Keep product image backgrounds controlled on the Fierce Highways page:
 
@@ -236,14 +234,6 @@ For the moment when the agent knows exactly what it wants to do, but the univers
 A little resistance is how the work gets honest.
 
 For reviewers, operators, and stubborn friends who know the bad idea is not always wrong, but it is never allowed through unchallenged.
-
-### Rate Limit Ridge Card Draft
-
-`Rate Limit Ridge`
-
-The mountain said no.
-
-For anyone who has watched a beautiful plan die against a 429 and started hiking anyway.
 
 ## Implementation Plan
 
