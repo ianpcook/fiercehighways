@@ -1,16 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { merchProducts, merchSyncedAt } from '../data/merch';
+import { merchProducts } from '../data/merch';
 
 const hasMultipleProducts = merchProducts.length > 1;
-const syncedDate = new Date(merchSyncedAt);
-const formattedSyncedDate = Number.isNaN(syncedDate.valueOf())
-  ? null
-  : syncedDate.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
+const quickStoreVerifiedDate = 'Jun 24, 2026';
 ---
 
 <BaseLayout
@@ -60,12 +53,10 @@ const formattedSyncedDate = Number.isNaN(syncedDate.valueOf())
           </p>
         </div>
 
-        {formattedSyncedDate && (
-          <p class="text-stone text-sm md:text-right">
-            Last API sync<br />
-            <span class="text-ink-light">{formattedSyncedDate}</span>
-          </p>
-        )}
+        <p class="text-stone text-sm md:text-right">
+          Quick Store verified<br />
+          <span class="text-ink-light">{quickStoreVerifiedDate}</span>
+        </p>
       </div>
 
       {merchProducts.length > 0 ? (
@@ -172,7 +163,7 @@ const formattedSyncedDate = Number.isNaN(syncedDate.valueOf())
         These are not startup hats.
       </h2>
       <p class="type-lead">
-        They are small field markers for the recurring indignities of making machines do things. Product data is synced from Printful at build time; checkout and fulfillment happen there when a product is live.
+        They are small field markers for the recurring indignities of making machines do things. Products are verified against the Printful Quick Store; checkout and fulfillment happen there.
       </p>
     </div>
   </section>
